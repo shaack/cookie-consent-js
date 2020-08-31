@@ -1,0 +1,27 @@
+{
+  "name": "cookie-consent-js",
+  "version": "1.0.0",
+  "description": "A simple dialog and framework to handle the German and EU law (may 2020) about cookies in a website",
+  "main": "src/cookie-consent.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shaack/cookie-consent-js.git"
+  },
+  "keywords": [
+    "cookie",
+    "cookie consent",
+    "eu",
+    "law",
+    "js",
+    "javascript"
+  ],
+  "author": "Stefan Haack (shaack.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shaack/cookie-consent-js/issues"
+  },
+  "homepage": "https://github.com/shaack/cookie-consent-js#readme"
+}

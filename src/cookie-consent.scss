@@ -4,6 +4,9 @@ $primary: #3579F6;
   position: fixed;
   z-index: 1000;
   padding-top: 20vh;
+  @media screen and (max-width: 500px) {
+    padding-top: 2.5%;
+  }
   left: 0;
   top: 0;
   width: 100%;

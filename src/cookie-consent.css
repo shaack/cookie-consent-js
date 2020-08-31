@@ -9,7 +9,11 @@
   height: 100%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.5); }
-  /* line 14, cookie-consent.scss */
+  @media screen and (max-width: 500px) {
+    /* line 3, cookie-consent.scss */
+    .cookie-consent-modal {
+      padding-top: 2.5%; } }
+  /* line 17, cookie-consent.scss */
   .cookie-consent-modal .modal-content {
     position: relative;
     background-color: #fefefe;
@@ -19,25 +23,25 @@
     max-width: 700px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
     border-radius: 0.2rem; }
-    /* line 24, cookie-consent.scss */
+    /* line 27, cookie-consent.scss */
     .cookie-consent-modal .modal-content .modal-header {
       padding: 1rem; }
-      /* line 26, cookie-consent.scss */
+      /* line 29, cookie-consent.scss */
       .cookie-consent-modal .modal-content .modal-header h3 {
         margin: 0;
         font-size: 120%; }
-    /* line 31, cookie-consent.scss */
+    /* line 34, cookie-consent.scss */
     .cookie-consent-modal .modal-content .modal-body {
       padding: 0 1rem; }
-    /* line 34, cookie-consent.scss */
+    /* line 37, cookie-consent.scss */
     .cookie-consent-modal .modal-content .modal-footer {
       padding: 1.5rem 1rem 1rem 1rem; }
-      /* line 36, cookie-consent.scss */
+      /* line 39, cookie-consent.scss */
       .cookie-consent-modal .modal-content .modal-footer .buttons {
         display: flex;
         justify-content: flex-end;
         flex-wrap: wrap; }
-        /* line 40, cookie-consent.scss */
+        /* line 43, cookie-consent.scss */
         .cookie-consent-modal .modal-content .modal-footer .buttons .btn {
           padding: 0.5rem 1rem;
           font-size: 100%;
@@ -46,19 +50,19 @@
           border-radius: 0.2rem;
           margin-right: 0.5rem;
           margin-bottom: 0.5rem; }
-          /* line 49, cookie-consent.scss */
+          /* line 52, cookie-consent.scss */
           .cookie-consent-modal .modal-content .modal-footer .buttons .btn.btn-primary {
             background-color: #3579F6;
             color: white; }
-            /* line 53, cookie-consent.scss */
+            /* line 56, cookie-consent.scss */
             .cookie-consent-modal .modal-content .modal-footer .buttons .btn.btn-primary:hover {
               background-color: #0b5bed; }
-          /* line 58, cookie-consent.scss */
+          /* line 61, cookie-consent.scss */
           .cookie-consent-modal .modal-content .modal-footer .buttons .btn.btn-secondary {
             background-color: transparent;
             color: #3579F6;
             border: 1px solid #3579F6; }
-            /* line 63, cookie-consent.scss */
+            /* line 66, cookie-consent.scss */
             .cookie-consent-modal .modal-content .modal-footer .buttons .btn.btn-secondary:hover {
               color: #0b5bed;
               border-color: #0b5bed; }

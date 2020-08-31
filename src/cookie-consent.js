@@ -1,9 +1,16 @@
-function CookieConsent(props) {
+/**
+ * Author and copyright: Stefan Haack (https://shaack.com)
+ * Repository: https://github.com/shaack/cookie-consent-js
+ * License: MIT, see file 'LICENSE'
+ */
+
+;function CookieConsent(props) {
     var self = this
     this.props = {
         cookieName: "cookie-consent-accept-all",
         buttonPrimaryClass: "btn btn-primary",
         buttonSecondaryClass: "btn btn-secondary",
+        linkPrivacyPolicy: "privacy-policy.html",
         content: {
             de: {
                 title: "Cookie-Einstellungen",
@@ -11,7 +18,6 @@ function CookieConsent(props) {
                     "Sie können wählen, ob Sie nur für die Funktion der Website notwendige Cookies akzeptieren oder auch " +
                     "Tracking-Cookies zulassen möchten. Weitere Informationen finden Sie in unserer --privacy-policy--.",
                 privacyPolicy: "Datenschutzerklärung",
-                linkPrivacyPolicy: "/de/site/datenschutzerklaerung.html",
                 buttonAcceptAll: "Alle Cookies akzeptieren",
                 buttonAcceptTechnical: "Nur technisch notwendige Cookies akzeptieren"
             },
@@ -21,7 +27,6 @@ function CookieConsent(props) {
                     "You can choose whether you only accept cookies that are necessary for the functioning of the website " +
                     "or whether you also want to allow tracking cookies. For more information, please refer to our --privacy-policy--.",
                 privacyPolicy: "privacy policy",
-                linkPrivacyPolicy: "/en/site/datenschutzerklaerung.html",
                 buttonAcceptAll: "Accept all cookies",
                 buttonAcceptTechnical: "Only accept technically necessary cookies"
             }
@@ -39,7 +44,7 @@ function CookieConsent(props) {
         this.lang = "en" // fallback
     }
     var _t = this.props.content[this.lang]
-    var linkPrivacyPolicy = '<a href="' + _t.linkPrivacyPolicy + '">' + _t.privacyPolicy + '</a>'
+    var linkPrivacyPolicy = '<a href="' + this.props.linkPrivacyPolicy + '">' + _t.privacyPolicy + '</a>'
     this.modalContent = '<div class="cookie-consent-modal">' +
         '<div class="modal-content">' +
         '<div class="modal-header">--header--</div>' +
@@ -57,7 +62,6 @@ function CookieConsent(props) {
         "</div>"
     )
 
-    // private
     function setCookie(name, value, days) {
         var expires = ""
         if (days) {

@@ -14,43 +14,61 @@ function CookieConsent(props) {
                 linkPrivacyPolicy: "/de/site/datenschutzerklaerung.html",
                 buttonAcceptAll: "Alle Cookies akzeptieren",
                 buttonAcceptTechnical: "Nur technisch notwendige Cookies akzeptieren"
+            },
+            en: {
+                title: "Cookie settings",
+                body: "We use cookies to personalize content and analyze access to our website. " +
+                    "You can choose whether you only accept cookies that are necessary for the functioning of the website " +
+                    "or whether you also want to allow tracking cookies. For more information, please refer to our --privacy-policy--.",
+                privacyPolicy: "privacy policy",
+                linkPrivacyPolicy: "/en/site/datenschutzerklaerung.html",
+                buttonAcceptAll: "Accept all cookies",
+                buttonAcceptTechnical: "Only accept technically necessary cookies"
             }
         },
-        modalId: "cookieConsentModal"
+        modalId: "cookieConsentModal",
+        lang: navigator.language
     }
     for (var property in props) {
         // noinspection JSUnfilteredForInLoop
         this.props[property] = props[property]
     }
-    var linkPrivacyPolicy = '<a href="' + this.props.content.de.linkPrivacyPolicy + '">' + this.props.content.de.privacyPolicy + '</a>'
+    if (this.props.content[this.props.lang] !== undefined) {
+        this.lang = this.props.lang
+    } else {
+        this.lang = "en" // fallback
+    }
+    var _t = this.props.content[this.lang]
+    var linkPrivacyPolicy = '<a href="' + _t.linkPrivacyPolicy + '">' + _t.privacyPolicy + '</a>'
     this.modalContent = '<div class="cookie-consent-modal">' +
         '<div class="modal-content">' +
         '<div class="modal-header">--header--</div>' +
         '<div class="modal-body">--body--</div>' +
         '<div class="modal-footer">--footer--</div>' +
         '</div>'
-    this.modalContent = this.modalContent.replace(/--header--/, "<h3>" +
-        this.props.content.de.title +
-        "</h3>")
+    this.modalContent = this.modalContent.replace(/--header--/, "<h3>" + _t.title + "</h3>")
     this.modalContent = this.modalContent.replace(/--body--/,
-        this.props.content.de.body.replace(/--privacy-policy--/, linkPrivacyPolicy)
+        _t.body.replace(/--privacy-policy--/, linkPrivacyPolicy)
     )
     this.modalContent = this.modalContent.replace(/--footer--/,
         "<div class='buttons'>" +
-        "<button class='btn-accept-technical " + this.props.buttonSecondaryClass + "'>" + this.props.content.de.buttonAcceptTechnical + "</button>" +
-        "<button class='btn-accept-all " + this.props.buttonPrimaryClass + "'>" + this.props.content.de.buttonAcceptAll + "</button>" +
+        "<button class='btn-accept-technical " + this.props.buttonSecondaryClass + "'>" + _t.buttonAcceptTechnical + "</button>" +
+        "<button class='btn-accept-all " + this.props.buttonPrimaryClass + "'>" + _t.buttonAcceptAll + "</button>" +
         "</div>"
     )
-    this.setCookie = function (name, value, days) {
+
+    // private
+    function setCookie(name, value, days) {
         var expires = ""
         if (days) {
             var date = new Date()
             date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000))
             expires = "; expires=" + date.toUTCString()
         }
-        document.cookie = name + "=" + (value || "") + expires + "; path=/"
+        document.cookie = name + "=" + (value || "") + expires + "; Path=/; SameSite=Strict;"
     }
-    this.getCookie = function (name) {
+
+    function getCookie(name) {
         var nameEQ = name + "="
         var ca = document.cookie.split(';')
         for (var i = 0; i < ca.length; i++) {
@@ -64,13 +82,16 @@ function CookieConsent(props) {
         }
         return undefined
     }
-    this.removeCookie = function (name) {
-        document.cookie = name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;'
+
+    function removeCookie(name) {
+        document.cookie = name + '=; Path=/; SameSite=Strict; Expires=Thu, 01 Jan 1970 00:00:01 GMT;'
     }
-    this.hideDialog = function () {
+
+    function hideDialog() {
         this.modal.style.display = "none"
     }
-    this.showDialog = function () {
+
+    function showDialog() {
         this.modal = document.getElementById("cookieConsentModal")
         if (!this.modal) {
             this.modal = document.createElement("div")
@@ -79,25 +100,30 @@ function CookieConsent(props) {
             document.body.append(this.modal)
             // modal.style.display = "block"
             this.modal.querySelector(".btn-accept-technical").addEventListener("click", function () {
-                self.setCookie(self.props.cookieName, "false", 365)
-                self.hideDialog()
+                setCookie(self.props.cookieName, "false", 365)
+                hideDialog()
             })
             this.modal.querySelector(".btn-accept-all").addEventListener("click", function () {
-                self.setCookie(self.props.cookieName, "true", 365)
-                self.hideDialog()
+                setCookie(self.props.cookieName, "true", 365)
+                hideDialog()
             })
+        } else {
+            this.modal.style.display = "block"
         }
     }
-    if (this.getCookie(self.props.cookieName) === undefined) {
-        this.showDialog()
-    }
-}
 
-// API
-CookieConsent.prototype.reset = function () {
-    this.removeCookie(this.props.cookieName)
-    this.showDialog()
-}
-CookieConsent.prototype.isTrackingCookieAllowed = function () {
-    return this.getCookie(this.props.cookieName) === "false"
+    if (getCookie(self.props.cookieName) === undefined) {
+        showDialog()
+    }
+
+    // API
+    this.reset = function () {
+        removeCookie(this.props.cookieName)
+        showDialog()
+    }
+
+    this.isTrackingCookieAllowed = function () {
+        return getCookie(this.props.cookieName) === "true"
+    }
+
 }

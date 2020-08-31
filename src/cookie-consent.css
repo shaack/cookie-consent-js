@@ -31,7 +31,7 @@
       padding: 0 1rem; }
     /* line 34, cookie-consent.scss */
     .cookie-consent-modal .modal-content .modal-footer {
-      padding: 1rem 1rem 0.5rem 1rem; }
+      padding: 1.5rem 1rem 1rem 1rem; }
       /* line 36, cookie-consent.scss */
       .cookie-consent-modal .modal-content .modal-footer .buttons {
         display: flex;
@@ -39,7 +39,7 @@
         flex-wrap: wrap; }
         /* line 40, cookie-consent.scss */
         .cookie-consent-modal .modal-content .modal-footer .buttons .btn {
-          padding: 0.5rem 2rem;
+          padding: 0.5rem 1rem;
           font-size: 100%;
           cursor: pointer;
           border: none;

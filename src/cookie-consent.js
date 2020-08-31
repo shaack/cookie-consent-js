@@ -5,6 +5,7 @@
  */
 
 function CookieConsent(props) {
+
     var self = this
     this.props = {
         cookieName: "cookie-consent-accept-all",
@@ -116,7 +117,7 @@ function CookieConsent(props) {
         }
     }
 
-    if (getCookie(self.props.cookieName) === undefined) {
+    if (getCookie(this.props.cookieName) === undefined) {
         showDialog()
     }
 

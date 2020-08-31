@@ -1,3 +1,5 @@
+$primary: #3579F6;
+
 .cookie-consent-modal {
   position: fixed;
   z-index: 1000;
@@ -15,16 +17,55 @@
     margin: auto;
     padding: 0;
     width: 95%; // TODO mobile
-    max-width: 580px;
+    max-width: 700px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
-
-    .modal-header, .modal-body, .modal-footer {
-      padding: 1rem;
-    }
+    border-radius: 0.2rem;
 
     .modal-header {
+      padding: 1rem;
       h3 {
         margin: 0;
+        font-size: 120%;
+      }
+    }
+    .modal-body {
+      padding: 0 1rem;
+    }
+    .modal-footer {
+      padding: 1rem 1rem 0.5rem 1rem;
+      .buttons {
+        display: flex;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+        .btn {
+          padding: 0.5rem 2rem;
+          font-size: 100%;
+          cursor: pointer;
+          border: none;
+          border-radius: 0.2rem;
+          margin-right: 0.5rem;
+          margin-bottom: 0.5rem;
+
+          &.btn-primary {
+            background-color: $primary;
+            color: white;
+
+            &:hover {
+              background-color: darken($primary, 10%);
+            }
+          }
+
+          &.btn-secondary {
+            background-color: transparent;
+            color: $primary;
+            border: 1px solid $primary;
+
+            &:hover {
+              color: darken($primary, 10%);
+              border-color: darken($primary, 10%);
+            }
+          }
+        }
       }
     }
   }

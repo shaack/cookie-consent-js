@@ -24,8 +24,17 @@
 <p>Open the developer console to see some output.</p>
 <p><a href="https://github.com/shaack/cookie-consent-js">View the git repository for this project</a></p>
 <h2>API</h2>
-<button onclick="reset()">Reset settings</button>
+<button onclick="reset()">Reset cookie settings</button>
 <button onclick="logStatus()">Log status</button>
+<h2>Usage</h2>
+<pre><code>var cookieConsent = new CookieConsent({linkPrivacyPolicy: "privacy-policy.html"})
+
+// reset the cookie settings:
+cookieConsent.reset()
+
+// read the status
+cookieConsent.isTrackingCookieAllowed()
+</code></pre>
 <script src="./src/cookie-consent.js"></script>
 <script>
     var cookieConsent = new CookieConsent({linkPrivacyPolicy: "fake-privacy-policy.html"})

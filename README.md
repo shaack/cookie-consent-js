@@ -50,7 +50,7 @@ this.props = {
     buttonPrimaryClass: "button button-accept-all", // bootstrap: set to "btn btn-primary"
     buttonSecondaryClass: "button button-accept-necessary", // bootstrap: set to "btn btn-secondary"
     privacyPolicyUrl: "privacy-policy.html",
-    autoShowModal: true, // disable autoShowModal on the privacy policy page, to make this page readable
+    autoShowModal: true, // disable autoShowModal on the privacy policy page, to make that page readable
     lang: navigator.language, // the language, in which the modal is shown
     content: { // the content in all needed languages
         de: {

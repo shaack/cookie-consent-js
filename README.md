@@ -26,10 +26,18 @@ See below "Configuration properties".
 cookieConsent.reset()
 ```
 
-### Read status
+### Read the status
 ```js
 cookieConsent.isTrackingCookieAllowed()
 ```
+Use this function to disable tracking. 
+Suround for example the Analytics code with
+```js
+if(cookieConsent.isTrackingCookieAllowed()) {
+    // Google Analytics code and other tracking code
+}
+``` 
+
 
 ### Configuration properties
 With default values.

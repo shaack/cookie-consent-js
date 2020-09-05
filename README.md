@@ -72,3 +72,6 @@ You should disable `autoShowModal` in the privacy policy page to make this page 
 var cookieConsent = new CookieConsent({linkPrivacyPolicy: "privacy-policy.html", autoShowModal: false})
 ```
 
+#### Styling
+See `./src/cookie-consent.scss` and overwrite values as you need in your projects stylesheet. 
+

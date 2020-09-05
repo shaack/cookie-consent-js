@@ -1,4 +1,4 @@
-$primary: #3579F6;
+$primary: #3579F6; // the button color
 
 .cookie-consent-modal {
   position: fixed;
@@ -12,7 +12,7 @@ $primary: #3579F6;
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.5); // the fullscreen background layer
 
   .modal-content {
     position: relative;

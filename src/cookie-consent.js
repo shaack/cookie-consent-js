@@ -128,7 +128,7 @@ function CookieConsent(props) {
         }.bind(this))
     }
 
-    if (getCookie(this.props.cookieName) === undefined) {
+    if (getCookie(this.props.cookieName) === undefined && this.props.autoShowModal) {
         showDialog()
     }
 

@@ -1,7 +1,8 @@
 # cookie-consent-js
 A simple dialog and framework to handle the German and EU law (may 2020) about cookies in a website
 
-[Demo Page](https://shaack.com/projekte/cookie-consent-js/index.html)
+- [Demo page](https://shaack.com/projekte/cookie-consent-js/index.html)
+- [npm package](https://www.npmjs.com/package/cookie-consent-js)
 
 ## Usage
 
@@ -25,6 +26,7 @@ See below "Configuration properties".
 ```js
 cookieConsent.reset()
 ```
+Use this to allow the user to reconfigure the cookie settings, for example in your service navigation as "cookie settings".
 
 ### Read the status
 ```js
@@ -80,6 +82,6 @@ You should disable `autoShowModal` in the privacy policy page to make this page 
 var cookieConsent = new CookieConsent({linkPrivacyPolicy: "privacy-policy.html", autoShowModal: false})
 ```
 
-#### Styling
+## Styling
 See `./src/cookie-consent.scss` and overwrite values as you need in your projects stylesheet. 
 

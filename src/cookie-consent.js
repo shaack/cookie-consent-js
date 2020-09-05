@@ -8,11 +8,12 @@ function CookieConsent(props) {
 
     var self = this
     this.props = {
-        cookieName: "cookie-consent-accept-all",
         buttonPrimaryClass: "btn btn-primary",
         buttonSecondaryClass: "btn btn-secondary",
-        linkPrivacyPolicy: "privacy-policy.html",
-        content: {
+        privacyPolicyUrl: "privacy-policy.html",
+        autoShowModal: true, // disable autoShowModal on the privacy policy page, to make this page readable
+        lang: navigator.language, // the language, in which the modal is shown
+        content: { // the content in all needed languages
             de: {
                 title: "Cookie-Einstellungen",
                 body: "Wir nutzen Cookies, um Inhalte zu personalisieren und die Zugriffe auf unsere Website zu analysieren. " +
@@ -32,8 +33,8 @@ function CookieConsent(props) {
                 buttonAcceptTechnical: "Only accept technically necessary cookies"
             }
         },
-        modalId: "cookieConsentModal",
-        lang: navigator.language
+        modalId: "cookieConsentModal", // this may not be changed
+        cookieName: "cookie-consent-accept-all"  // this may not be changed
     }
     for (var property in props) {
         // noinspection JSUnfilteredForInLoop
@@ -45,7 +46,7 @@ function CookieConsent(props) {
         this.lang = "en" // fallback
     }
     var _t = this.props.content[this.lang]
-    var linkPrivacyPolicy = '<a href="' + this.props.linkPrivacyPolicy + '">' + _t.privacyPolicy + '</a>'
+    var linkPrivacyPolicy = '<a href="' + this.props.privacyPolicyUrl + '">' + _t.privacyPolicy + '</a>'
     this.modalContent = '<div class="cookie-consent-modal">' +
         '<div class="modal-content">' +
         '<div class="modal-header">--header--</div>' +
@@ -92,29 +93,39 @@ function CookieConsent(props) {
         document.cookie = name + '=; Path=/; SameSite=Strict; Expires=Thu, 01 Jan 1970 00:00:01 GMT;'
     }
 
+    function documentReady(fn) {
+        if (document.readyState !== 'loading') {
+            fn()
+        } else {
+            document.addEventListener('DOMContentLoaded', fn)
+        }
+    }
+
     function hideDialog() {
         this.modal.style.display = "none"
     }
 
     function showDialog() {
-        this.modal = document.getElementById("cookieConsentModal")
-        if (!this.modal) {
-            this.modal = document.createElement("div")
-            this.modal.id = self.props.modalId
-            this.modal.innerHTML = self.modalContent
-            document.body.append(this.modal)
-            // modal.style.display = "block"
-            this.modal.querySelector(".btn-accept-technical").addEventListener("click", function () {
-                setCookie(self.props.cookieName, "false", 365)
-                hideDialog()
-            })
-            this.modal.querySelector(".btn-accept-all").addEventListener("click", function () {
-                setCookie(self.props.cookieName, "true", 365)
-                hideDialog()
-            })
-        } else {
-            this.modal.style.display = "block"
-        }
+        documentReady(function () {
+            this.modal = document.getElementById("cookieConsentModal")
+            if (!this.modal) {
+                this.modal = document.createElement("div")
+                this.modal.id = self.props.modalId
+                this.modal.innerHTML = self.modalContent
+                document.body.append(this.modal)
+                // modal.style.display = "block"
+                this.modal.querySelector(".btn-accept-technical").addEventListener("click", function () {
+                    setCookie(self.props.cookieName, "false", 365)
+                    hideDialog()
+                })
+                this.modal.querySelector(".btn-accept-all").addEventListener("click", function () {
+                    setCookie(self.props.cookieName, "true", 365)
+                    hideDialog()
+                })
+            } else {
+                this.modal.style.display = "block"
+            }
+        }.bind(this))
     }
 
     if (getCookie(this.props.cookieName) === undefined) {

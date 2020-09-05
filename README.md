@@ -26,6 +26,7 @@ See below "Configuration properties".
 ```js
 cookieConsent.reset()
 ```
+Use this to allow the user to reconfigure the cookie settings. Use it for example in your service navigation as "cookie settings".
 
 ### Read the status
 ```js

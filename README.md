@@ -44,8 +44,8 @@ With default values.
 
 ```js
 this.props = {
-    buttonPrimaryClass: "btn btn-primary",
-    buttonSecondaryClass: "btn btn-secondary",
+    buttonPrimaryClass: "button button-accept-all", // bootstrap: set to "btn btn-primary"
+    buttonSecondaryClass: "button button-accept-necessary", // bootstrap: set to "btn btn-secondary"
     privacyPolicyUrl: "privacy-policy.html",
     autoShowModal: true, // disable autoShowModal on the privacy policy page, to make this page readable
     lang: navigator.language, // the language, in which the modal is shown

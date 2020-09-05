@@ -8,8 +8,8 @@ function CookieConsent(props) {
 
     var self = this
     this.props = {
-        buttonPrimaryClass: "btn btn-primary",
-        buttonSecondaryClass: "btn btn-secondary",
+        buttonPrimaryClass: "button button-accept-all", // bootstrap: set to "btn btn-primary"
+        buttonSecondaryClass: "button button-accept-necessary", // bootstrap: set to "btn btn-secondary"
         privacyPolicyUrl: "privacy-policy.html",
         autoShowModal: true, // disable autoShowModal on the privacy policy page, to make this page readable
         lang: navigator.language, // the language, in which the modal is shown
@@ -59,7 +59,7 @@ function CookieConsent(props) {
     )
     this.modalContent = this.modalContent.replace(/--footer--/,
         "<div class='buttons'>" +
-        "<button class='btn-accept-technical " + this.props.buttonSecondaryClass + "'>" + _t.buttonAcceptTechnical + "</button>" +
+        "<button class='btn-accept-necessary " + this.props.buttonSecondaryClass + "'>" + _t.buttonAcceptTechnical + "</button>" +
         "<button class='btn-accept-all " + this.props.buttonPrimaryClass + "'>" + _t.buttonAcceptAll + "</button>" +
         "</div>"
     )
@@ -114,7 +114,7 @@ function CookieConsent(props) {
                 this.modal.innerHTML = self.modalContent
                 document.body.append(this.modal)
                 // modal.style.display = "block"
-                this.modal.querySelector(".btn-accept-technical").addEventListener("click", function () {
+                this.modal.querySelector(".btn-accept-necessary").addEventListener("click", function () {
                     setCookie(self.props.cookieName, "false", 365)
                     hideDialog()
                 })

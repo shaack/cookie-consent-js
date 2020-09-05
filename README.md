@@ -22,21 +22,22 @@ See below "Configuration properties".
 
 ## JavaScript API
 
-### Reset cookie settings
+### Show the settings dialog again
 ```js
 cookieConsent.reset()
 ```
-Use this to allow the user to reconfigure the cookie settings, for example in your service navigation as "cookie settings".
+Use this to allow the user to reconfigure the cookie settings, for example, in your 
+service navigation as "cookie settings".
 
 ### Read the status
 ```js
 cookieConsent.isTrackingCookieAllowed()
 ```
 Use this function to disable tracking. 
-Suround for example the Analytics code with
+Suround tracking code, like the Google Analytics code with
 ```js
 if(cookieConsent.isTrackingCookieAllowed()) {
-    // Google Analytics code and other tracking code
+    // Google Analytics code and/or other tracking code
 }
 ``` 
 
@@ -77,7 +78,7 @@ this.props = {
 ```
 
 #### Disable autoShow
-You should disable `autoShowModal` in the privacy policy page to make this page readable. 
+You should disable `autoShowModal` in the privacy policy page to make that page readable. 
 ```js
 var cookieConsent = new CookieConsent({linkPrivacyPolicy: "privacy-policy.html", autoShowModal: false})
 ```

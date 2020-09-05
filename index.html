@@ -22,22 +22,28 @@
 <body>
 <h1>cookie-consent-js Testpage</h1>
 <p>Open the developer console to see some output.</p>
-<p><a href="https://github.com/shaack/cookie-consent-js">View the git repository for this project</a></p>
+<p><a href="https://github.com/shaack/cookie-consent-js">View the git repository and further documentation for this project</a></p>
 <h2>API</h2>
 <button onclick="reset()">Reset cookie settings</button>
 <button onclick="logStatus()">Log status</button>
 <h2>Usage</h2>
-<pre><code>var cookieConsent = new CookieConsent({linkPrivacyPolicy: "privacy-policy.html"})
-
-// reset the cookie settings:
+<h3>1. Include the js and the css</h3>
+<pre><code>&lt;link rel="stylesheet" href="src/cookie-consent.css"/>
+&lt;script src="./src/cookie-consent.js">&lt;/script></code></pre>
+<h3>2. Initialize the script</h3>
+<pre><code>var cookieConsent = new CookieConsent({linkPrivacyPolicy: "privacy-policy.html"})</code></pre>
+<h2>API</h2>
+<pre><code>// reset the cookie settings
 cookieConsent.reset()
 
 // read the status
 cookieConsent.isTrackingCookieAllowed()
-</code></pre>
+
+// disable `autoShowModal` on the privacy policy page, to make this page readable
+var cookieConsent = new CookieConsent({linkPrivacyPolicy: "privacy-policy.html", autoShowModal: false})</code></pre>
 <script src="./src/cookie-consent.js"></script>
 <script>
-    var cookieConsent = new CookieConsent({linkPrivacyPolicy: "fake-privacy-policy.html"})
+    var cookieConsent = new CookieConsent({privacyPolicyUrl: "fake-privacy-policy.html"})
 
     function reset() {
         cookieConsent.reset()

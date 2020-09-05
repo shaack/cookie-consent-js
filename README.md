@@ -7,7 +7,7 @@ A simple dialog and framework to handle the German and EU law (may 2020) about c
 
 ### Include the js and css
 ```html
-<link rel="stylesheet" href="src/cookie-consent.css"/>
+<link rel="stylesheet" href="./src/cookie-consent.css"/>
 <script src="./src/cookie-consent.js"></script>
 ```
 

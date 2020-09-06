@@ -33,8 +33,8 @@ function CookieConsent(props) {
                 buttonAcceptTechnical: "Only accept technically necessary cookies"
             }
         },
-        modalId: "cookieConsentModal", // this may not be changed
-        cookieName: "cookie-consent-tracking-allowed"  // this may not be changed
+        cookieName: "cookie-consent-tracking-allowed",  // the name of the cookie, the cookie is `true` if tracking was accepted
+        modalId: "cookieConsentModal" // the id of the modal dialog element
     }
     for (var property in props) {
         // noinspection JSUnfilteredForInLoop
@@ -107,7 +107,7 @@ function CookieConsent(props) {
 
     function showDialog() {
         documentReady(function () {
-            this.modal = document.getElementById("cookieConsentModal")
+            this.modal = document.getElementById(self.props.modalId)
             if (!this.modal) {
                 this.modal = document.createElement("div")
                 this.modal.id = self.props.modalId

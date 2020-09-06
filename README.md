@@ -1,4 +1,5 @@
 # cookie-consent-js
+
 A simple dialog and framework to handle the German and EU law (may 2020) about cookies in a website
 
 - [Demo pages in plain HTML or with Bootstrap 4](https://shaack.com/projekte/cookie-consent-js/index.html)
@@ -8,10 +9,12 @@ A simple dialog and framework to handle the German and EU law (may 2020) about c
 
 Follow these easy steps to integrate the cookie settings in your page.
 
-### 1. Install cookie-consent-js in your project with `npm i cookie-consent-js` 
+### 1. Install cookie-consent-js in your project with `npm install cookie-consent-js` 
+
 Alternatively you can download the [git repository](https://github.com/shaack/cookie-consent-js).
 
 ### 2. Include `cookie-consent.css`
+
 ```html
 <link rel="stylesheet" href="/node_modules/cookie-consent-js/src/cookie-consent.css"/>
 ```
@@ -19,12 +22,14 @@ This should be done before any bootstrap or other frameworks css. You can
 overwrite styling in your projects css, take a look at [cookie-consent.scss](https://github.com/shaack/cookie-consent-js/blob/master/src/cookie-consent.scss).
 
 ### 3. Include `cookie-consent.js`
+
 ```html
 <script src="/node_modules/cookie-consent-js/src/cookie-consent.js"></script>
 ```
 In your `<head>` or at the bottom of your `<body>`.
 
 ### 4. Initialize the Script
+
 ```js
 var cookieConsent = new CookieConsent({privacyPolicyUrl: "/privacy-policy.html"})
 ```
@@ -32,13 +37,15 @@ In `props` you should at least define `privacyPolicyUrl`.
 See below "Configuration properties". 
 
 ### 5. Disable "autoShowModal" in your privacy policy page
+
 ```js
 var cookieConsent = new CookieConsent({autoShowModal: false, privacyPolicyUrl: "/privacy-policy.html"})
 ```
 The settings dialog is linking to the privacy policy. To enable the user to read the policy, you
-should disable autoShowModal there.
+should disable `autoShowModal` there.
 
 ### 6. Enable "Cookie settings" in your service navigation
+
 ```html
 <a href="javascript:cookieConsent.reset()">Cookie settings</a>
 ```
@@ -55,6 +62,7 @@ API (`cookieConsent.trackingALlowed()`) or from any other language, which can re
 ### JavaScript API
 
 #### Show the settings dialog again
+
 ```js
 cookieConsent.reset()
 ```
@@ -62,6 +70,7 @@ Use this to allow the user to reconfigure the cookie settings, for example, in y
 service navigation as "Cookie settings".
 
 #### Read the status
+
 ```js
 cookieConsent.trackingAllowed()
 ```
@@ -83,12 +92,13 @@ if($_COOKIE['cookie-consent-tracking-allowed'] === 'true') {
 ```
 
 ## Configuration properties
+
 With default values.
 
 ```js
 this.props = {
-    buttonPrimaryClass: "btn btn-primary", // bootstrap: set to "btn btn-primary"
-    buttonSecondaryClass: "btn btn-outline-primary", // bootstrap: set to "btn btn-secondary"
+    buttonPrimaryClass: "btn btn-primary", // the "accept all" buttons class, only used for styling
+    buttonSecondaryClass: "btn btn-secondary", // the "accept necessary" buttons class, only used for styling
     privacyPolicyUrl: "privacy-policy.html",
     autoShowModal: true, // disable autoShowModal on the privacy policy page, to make that page readable
     lang: navigator.language, // the language, in which the modal is shown
@@ -118,12 +128,14 @@ this.props = {
 ```
 
 ### Disable autoShow
+
 You should disable `autoShowModal` in the privacy policy page to make _that_ page readable. 
 ```js
 var cookieConsent = new CookieConsent({linkPrivacyPolicy: "privacy-policy.html", autoShowModal: false})
 ```
 
 ## Styling
+
 See `./src/cookie-consent.scss` and overwrite values as you need in your projects stylesheet.
 
 ## Disclaimer

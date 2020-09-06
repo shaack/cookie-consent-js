@@ -1,18 +1,17 @@
 $primary: #3579F6; // the button color
+$secondary: #89a;
 
 .cookie-consent-modal {
   position: fixed;
   z-index: 1000;
   padding-top: 20vh;
-  @media screen and (max-width: 500px) {
-    padding-top: 2.5%;
-  }
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.5); // the fullscreen background layer
+  font-family: sans-serif;
 
   .modal-content {
     position: relative;
@@ -26,27 +25,39 @@ $primary: #3579F6; // the button color
 
     .modal-header {
       padding: 1rem;
+      // border-bottom: 1px solid rgba(0,0,0,0.1);
 
       h3 {
         margin: 0;
         font-size: 120%;
+        font-weight: normal;
       }
     }
 
     .modal-body {
-      padding: 0 1rem;
+      padding: 1rem 1rem;
+      line-height: 1.3;
+
+      a {
+        color: $primary;
+
+        &:hover {
+          color: darken($primary, 10%);
+        }
+      }
     }
 
     .modal-footer {
-      padding: 1.5rem 1rem 1rem 1rem;
+      padding: 1rem 0.5rem 0.5rem 0.5rem;
+      // border-top: 1px solid rgba(0,0,0,0.1);
 
       .buttons {
         display: flex;
         justify-content: flex-end;
         flex-wrap: wrap;
 
-        .button {
-          padding: 0.5rem 1rem;
+        .btn {
+          padding: 0.8rem 1.1rem;
           font-size: 100%;
           cursor: pointer;
           border: none;
@@ -54,7 +65,7 @@ $primary: #3579F6; // the button color
           margin-right: 0.5rem;
           margin-bottom: 0.5rem;
 
-          &.button-accept-all {
+          &.btn-primary {
             background-color: $primary;
             color: white;
 
@@ -63,18 +74,23 @@ $primary: #3579F6; // the button color
             }
           }
 
-          &.button-accept-necessary {
-            background-color: transparent;
-            color: $primary;
-            border: 1px solid $primary;
+          &.btn-secondary {
+            background-color: $secondary;
+            color: white;
 
             &:hover {
-              color: darken($primary, 10%);
-              border-color: darken($primary, 10%);
+              background-color: darken($secondary, 10%);
             }
           }
         }
       }
+    }
+  }
+
+  @media screen and (max-width: 620px) {
+    padding-top: 2.5%;
+    .btn {
+      width: 100%;
     }
   }
 }

@@ -8,8 +8,8 @@ function CookieConsent(props) {
 
     var self = this
     this.props = {
-        buttonPrimaryClass: "button button-accept-all", // bootstrap: set to "btn btn-primary"
-        buttonSecondaryClass: "button button-accept-necessary", // bootstrap: set to "btn btn-secondary"
+        buttonPrimaryClass: "btn btn-primary", // the "accept all" buttons class, only used for styling
+        buttonSecondaryClass: "btn btn-secondary", // the "accept necessary" buttons class, only used for styling
         privacyPolicyUrl: "privacy-policy.html",
         autoShowModal: true, // disable autoShowModal on the privacy policy page, to make that page readable
         lang: navigator.language, // the language, in which the modal is shown
@@ -53,7 +53,7 @@ function CookieConsent(props) {
         '<div class="modal-body">--body--</div>' +
         '<div class="modal-footer">--footer--</div>' +
         '</div>'
-    this.modalContent = this.modalContent.replace(/--header--/, "<h3>" + _t.title + "</h3>")
+    this.modalContent = this.modalContent.replace(/--header--/, "<h3 class=\"modal-title\">" + _t.title + "</h3>")
     this.modalContent = this.modalContent.replace(/--body--/,
         _t.body.replace(/--privacy-policy--/, linkPrivacyPolicy)
     )

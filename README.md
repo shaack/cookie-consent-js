@@ -20,16 +20,18 @@ var cookieConsent = new CookieConsent(props)
 In `props` you should at least define `privacyPolicyUrl`. 
 See below "Configuration properties". 
 
-## JavaScript API
+## API
 
-### Show the settings dialog again
+### JavaScript API
+
+#### Show the settings dialog again
 ```js
 cookieConsent.reset()
 ```
 Use this to allow the user to reconfigure the cookie settings, for example, in your 
 service navigation as "cookie settings".
 
-### Read the status
+#### Read the status
 ```js
 cookieConsent.isTrackingCookieAllowed()
 ```
@@ -41,8 +43,16 @@ if(cookieConsent.isTrackingCookieAllowed()) {
 }
 ``` 
 
+### Read the status from PHP
 
-### Configuration properties
+Read the cookie from a PHP server with
+```php
+if($_COOKIE['cookie-consent-accept-all'] === 'true') {
+    // do some tracking
+}
+```
+
+## Configuration properties
 With default values.
 
 ```js
@@ -77,7 +87,7 @@ this.props = {
 }
 ```
 
-#### Disable autoShow
+### Disable autoShow
 You should disable `autoShowModal` in the privacy policy page to make that page readable. 
 ```js
 var cookieConsent = new CookieConsent({linkPrivacyPolicy: "privacy-policy.html", autoShowModal: false})

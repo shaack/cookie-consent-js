@@ -22,6 +22,10 @@ See below "Configuration properties".
 
 ## API
 
+This framework writes a cookie (it's default name is `cookie-consent-tracking-allowed`)
+with the value `true`, if the user has accepted tracking. You can read the value with the JavaScript 
+API (`cookieConsent.trackingALlowed()`) or from any other language, which can read cookies.  
+
 ### JavaScript API
 
 #### Show the settings dialog again
@@ -82,17 +86,16 @@ this.props = {
             buttonAcceptTechnical: "Only accept technically necessary cookies"
         }
     },
-    modalId: "cookieConsentModal", // this may not be changed
-    cookieName: "cookie-consent-tracking-allowed"  // this may not be changed
+    cookieName: "cookie-consent-tracking-allowed",  // the name of the cookie, the cookie is `true` if tracking was accepted
+    modalId: "cookieConsentModal" // the id of the modal dialog element
 }
 ```
 
 ### Disable autoShow
-You should disable `autoShowModal` in the privacy policy page to make that page readable. 
+You should disable `autoShowModal` in the privacy policy page to make _that_ page readable. 
 ```js
 var cookieConsent = new CookieConsent({linkPrivacyPolicy: "privacy-policy.html", autoShowModal: false})
 ```
 
 ## Styling
-See `./src/cookie-consent.scss` and overwrite values as you need in your projects stylesheet. 
-
+See `./src/cookie-consent.scss` and overwrite values as you need in your projects stylesheet.

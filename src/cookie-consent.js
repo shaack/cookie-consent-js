@@ -34,7 +34,7 @@ function CookieConsent(props) {
             }
         },
         modalId: "cookieConsentModal", // this may not be changed
-        cookieName: "cookie-consent-accept-all"  // this may not be changed
+        cookieName: "cookie-consent-tracking-allowed"  // this may not be changed
     }
     for (var property in props) {
         // noinspection JSUnfilteredForInLoop
@@ -138,7 +138,7 @@ function CookieConsent(props) {
         showDialog()
     }
 
-    this.isTrackingCookieAllowed = function () {
+    this.trackingAllowed = function () {
         return getCookie(this.props.cookieName) === "true"
     }
 

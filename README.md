@@ -33,12 +33,12 @@ service navigation as "cookie settings".
 
 #### Read the status
 ```js
-cookieConsent.isTrackingCookieAllowed()
+cookieConsent.trackingAllowed()
 ```
-Use this function to disable tracking. 
-Suround tracking code, like the Google Analytics code with
+Returns `true` if the user did accept tracking cookies. 
+Use this function to disable tracking. Suround tracking code, like the Google Analytics code with
 ```js
-if(cookieConsent.isTrackingCookieAllowed()) {
+if(cookieConsent.trackingAllowed()) {
     // Google Analytics code and/or other tracking code
 }
 ``` 
@@ -47,7 +47,7 @@ if(cookieConsent.isTrackingCookieAllowed()) {
 
 Read the cookie from a PHP server with
 ```php
-if($_COOKIE['cookie-consent-accept-all'] === 'true') {
+if($_COOKIE['cookie-consent-tracking-allowed'] === 'true') {
     // do some tracking
 }
 ```
@@ -83,7 +83,7 @@ this.props = {
         }
     },
     modalId: "cookieConsentModal", // this may not be changed
-    cookieName: "cookie-consent-accept-all"  // this may not be changed
+    cookieName: "cookie-consent-tracking-allowed"  // this may not be changed
 }
 ```
 

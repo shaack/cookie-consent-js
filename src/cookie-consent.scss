@@ -1,10 +1,10 @@
-$primary: #3579F6; // the button color
-$secondary: #89a;
+$primary: #3579F6; // "accept all" button and privacy policy link color
+$secondary: #89a; // "accept necessary" button color
 
 .cookie-consent-modal {
   position: fixed;
   z-index: 1000;
-  padding-top: 20vh;
+  padding-top: 20vh; // modals vertical position in desktop mode
   left: 0;
   top: 0;
   width: 100%;
@@ -15,22 +15,23 @@ $secondary: #89a;
 
   .modal-content {
     position: relative;
-    background-color: #fefefe;
+    background-color: #fefefe; // the modals background color
+    color: #123; // the modals text color
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3); // the modals shadow
     margin: auto;
     padding: 0;
-    width: 95%; // TODO mobile
+    width: 95%;
     max-width: 700px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
     border-radius: 0.2rem;
 
     .modal-header {
       padding: 1rem;
-      // border-bottom: 1px solid rgba(0,0,0,0.1);
+      // border-bottom: 1px solid rgba(0,0,0,0.1);  // bootstrap-like lines
 
       h3 {
         margin: 0;
-        font-size: 120%;
-        font-weight: normal;
+        font-size: 130%;
+        font-weight: 500;
       }
     }
 
@@ -49,7 +50,7 @@ $secondary: #89a;
 
     .modal-footer {
       padding: 1rem 0.5rem 0.5rem 0.5rem;
-      // border-top: 1px solid rgba(0,0,0,0.1);
+      // border-top: 1px solid rgba(0,0,0,0.1); // bootstrap-like lines
 
       .buttons {
         display: flex;
@@ -57,7 +58,7 @@ $secondary: #89a;
         flex-wrap: wrap;
 
         .btn {
-          padding: 0.8rem 1.1rem;
+          padding: 0.7rem 1.1rem;
           font-size: 100%;
           cursor: pointer;
           border: none;
@@ -65,6 +66,7 @@ $secondary: #89a;
           margin-right: 0.5rem;
           margin-bottom: 0.5rem;
 
+          // "accept all" button
           &.btn-primary {
             background-color: $primary;
             color: white;
@@ -74,6 +76,7 @@ $secondary: #89a;
             }
           }
 
+          // "accept necessary" button
           &.btn-secondary {
             background-color: $secondary;
             color: white;
@@ -87,6 +90,7 @@ $secondary: #89a;
     }
   }
 
+  // align modal top and set buttons to full width on mobile
   @media screen and (max-width: 620px) {
     padding-top: 2.5%;
     .btn {

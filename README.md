@@ -36,15 +36,7 @@ var cookieConsent = new CookieConsent({privacyPolicyUrl: "/privacy-policy.html"}
 In `props` you should at least define `privacyPolicyUrl`. 
 See below "Configuration properties". 
 
-### 5. Disable "autoShowModal" in your privacy policy page
-
-```js
-var cookieConsent = new CookieConsent({autoShowModal: false, privacyPolicyUrl: "/privacy-policy.html"})
-```
-The settings dialog is linking to the privacy policy. To enable the user to read the policy, you
-should disable `autoShowModal` there.
-
-### 6. Enable "Cookie settings" in your service navigation
+### 5. Enable "Cookie settings" in your service navigation
 
 ```html
 <a href="javascript:cookieConsent.reset()">Cookie settings</a>

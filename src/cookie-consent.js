@@ -13,7 +13,7 @@ function CookieConsent(props) {
         privacyPolicyUrl: "privacy-policy.html",
         autoShowModal: true, // disable autoShowModal on the privacy policy page, to make that page readable
         lang: navigator.language, // the language, in which the modal is shown
-        nonIntrusive: false, // set "true" to allow using the website _before_ choosing a cookie configuration
+        blockAccess: false, // set "true" to block the access to the website before choosing a cookie configuration
         content: { // the content in all needed languages
             de: {
                 title: "Cookie-Einstellungen",
@@ -49,7 +49,7 @@ function CookieConsent(props) {
     var _t = this.props.content[this.lang]
     var linkPrivacyPolicy = '<a href="' + this.props.privacyPolicyUrl + '">' + _t.privacyPolicy + '</a>'
     var modalClass = "cookie-consent-modal"
-    if(this.props.nonIntrusive) {
+    if(!this.props.blockAccess) {
         modalClass += " non-intrusive"
     }
     this.modalContent = '<div class="' + modalClass + '">' +

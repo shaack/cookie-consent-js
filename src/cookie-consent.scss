@@ -20,18 +20,20 @@ $secondary: #89a; // "accept necessary" button color
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4); // the modals shadow
     margin: auto;
     padding: 0;
-    width: 95%;
+    // width: 95%;
     max-width: 700px;
     border-radius: 0.2rem;
 
     .modal-header {
       padding: 1rem;
-      // border-bottom: 1px solid rgba(0,0,0,0.1);  // bootstrap-like lines
+      border-bottom: 1px solid rgba(0,0,0,0.1);  // bootstrap-like lines
 
       h3 {
         margin: 0;
         font-size: 130%;
         font-weight: 500;
+        position: relative;
+        top: 0.2rem;
       }
     }
 
@@ -107,9 +109,10 @@ $secondary: #89a; // "accept necessary" button color
     height: auto;
     .modal-content {
       position: fixed;
-      bottom: 4rem;
-      left: 1rem;
+      bottom: 1rem;
+      left: 0;
       border: 1px solid rgba(0,0,0,0.2);
+      margin: 1rem;
     }
   }
 }

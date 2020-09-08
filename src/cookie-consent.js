@@ -49,8 +49,8 @@ function CookieConsent(props) {
     var _t = this.props.content[this.lang]
     var linkPrivacyPolicy = '<a href="' + this.props.privacyPolicyUrl + '">' + _t.privacyPolicy + '</a>'
     var modalClass = "cookie-consent-modal"
-    if(!this.props.blockAccess) {
-        modalClass += " non-intrusive"
+    if (this.props.blockAccess) {
+         modalClass += " block-access"
     }
     this.modalContent = '<div class="' + modalClass + '">' +
         '<div class="modal-content">' +
@@ -117,9 +117,7 @@ function CookieConsent(props) {
                 this.modal = document.createElement("div")
                 this.modal.id = self.props.modalId
                 this.modal.innerHTML = self.modalContent
-
                 document.body.append(this.modal)
-                // modal.style.display = "block"
                 this.modal.querySelector(".btn-accept-necessary").addEventListener("click", function () {
                     setCookie(self.props.cookieName, "false", 365)
                     hideDialog()

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../src/cookie-consent.css"/>
+    <title>cookie-consent-js testpage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <style>
+        body {
+            font-family: sans-serif;
+            line-height: 1.4;
+        }
+        button {
+            border: 1px solid black;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            font-size: 100%;
+            background-color: #eee;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            border-radius: 0.2rem;
+        }
+    </style>
+</head>
+<body>
+<h1>cookie-consent-js - Non intrusive configuration</h1>
+<a href="../index.html">&lt; Back</a>
+<p>With the non intrusive configurations, <b>the user is not blocked from using the website</b> before accepting the cookie
+    configuration. The dialog is displayed at bottom left.</p>
+<h2>API</h2>
+<button onclick="cookieConsent.reset()">Show the cookie settings dialog</button>
+<button onclick="console.log('trackingAllowed:', cookieConsent.trackingAllowed())">Log the status to the developer console</button>
+
+<h2>Documentation</h2>
+<ul>
+    <li><a href="https://github.com/shaack/cookie-consent-js">View the git repository and documentation for this project</a></li>
+</ul>
+<script src="../src/cookie-consent.js"></script>
+<script>
+    var cookieConsent = new CookieConsent({nonIntrusive: true, privacyPolicyUrl: "privacy-policy-mockup.html", cookieName: "cc-ni-tracking"})
+</script>
+</body>
+</html>

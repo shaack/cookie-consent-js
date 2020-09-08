@@ -15,7 +15,7 @@
     position: relative;
     background-color: #fefefe;
     color: #123;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
     margin: auto;
     padding: 0;
     width: 95%;
@@ -54,28 +54,41 @@
           cursor: pointer;
           border: none;
           border-radius: 0.2rem;
+          margin-left: 0.5rem;
           margin-right: 0.5rem;
           margin-bottom: 0.5rem; }
-          /* line 70, cookie-consent.scss */
+          /* line 71, cookie-consent.scss */
           .cookie-consent-modal .modal-content .modal-footer .buttons .btn.btn-primary {
             background-color: #3579F6;
             color: white; }
-            /* line 74, cookie-consent.scss */
+            /* line 75, cookie-consent.scss */
             .cookie-consent-modal .modal-content .modal-footer .buttons .btn.btn-primary:hover {
               background-color: #0b5bed; }
-          /* line 80, cookie-consent.scss */
+          /* line 81, cookie-consent.scss */
           .cookie-consent-modal .modal-content .modal-footer .buttons .btn.btn-secondary {
             background-color: #89a;
             color: white; }
-            /* line 84, cookie-consent.scss */
+            /* line 85, cookie-consent.scss */
             .cookie-consent-modal .modal-content .modal-footer .buttons .btn.btn-secondary:hover {
               background-color: #6a8095; }
   @media screen and (max-width: 620px) {
     /* line 4, cookie-consent.scss */
     .cookie-consent-modal {
       padding-top: 2.5%; }
-      /* line 96, cookie-consent.scss */
+      /* line 97, cookie-consent.scss */
       .cookie-consent-modal .btn {
         width: 100%; } }
+  /* line 103, cookie-consent.scss */
+  .cookie-consent-modal.non-intrusive {
+    padding-top: 0;
+    position: Static;
+    width: auto;
+    height: auto; }
+    /* line 108, cookie-consent.scss */
+    .cookie-consent-modal.non-intrusive .modal-content {
+      position: fixed;
+      bottom: 4rem;
+      left: 1rem;
+      border: 1px solid rgba(0, 0, 0, 0.2); }
 
 /*# sourceMappingURL=cookie-consent.css.map */

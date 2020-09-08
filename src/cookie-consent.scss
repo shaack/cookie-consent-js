@@ -17,7 +17,7 @@ $secondary: #89a; // "accept necessary" button color
     position: relative;
     background-color: #fefefe; // the modals background color
     color: #123; // the modals text color
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3); // the modals shadow
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4); // the modals shadow
     margin: auto;
     padding: 0;
     width: 95%;
@@ -63,6 +63,7 @@ $secondary: #89a; // "accept necessary" button color
           cursor: pointer;
           border: none;
           border-radius: 0.2rem;
+          margin-left: 0.5rem;
           margin-right: 0.5rem;
           margin-bottom: 0.5rem;
 
@@ -95,6 +96,20 @@ $secondary: #89a; // "accept necessary" button color
     padding-top: 2.5%;
     .btn {
       width: 100%;
+      // margin-left: 0.5rem;
+    }
+  }
+
+  &.non-intrusive {
+    padding-top: 0;
+    position: Static;
+    width: auto;
+    height: auto;
+    .modal-content {
+      position: fixed;
+      bottom: 4rem;
+      left: 1rem;
+      border: 1px solid rgba(0,0,0,0.2);
     }
   }
 }

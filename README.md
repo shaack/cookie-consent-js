@@ -102,6 +102,7 @@ this.props = {
     privacyPolicyUrl: "privacy-policy.html",
     autoShowModal: true, // disable autoShowModal on the privacy policy page, to make that page readable
     lang: navigator.language, // the language, in which the modal is shown
+    nonIntrusive: false, // set "true" to allow using the website _before_ choosing a cookie configuration
     content: { // the content in all needed languages
         de: {
             title: "Cookie-Einstellungen",

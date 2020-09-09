@@ -1,6 +1,6 @@
 # cookie-consent-js
 
-A simple dialog and framework to handle the German and EU law (may 2020) about cookies in a website
+A simple dialog and framework to handle the German and EU law (as written by EuGH, 1.10.2019 – C-673/17) about cookies in a website
 
 - [Demo pages in plain HTML or with Bootstrap 4](https://shaack.com/projekte/cookie-consent-js/index.html)
 - [npm package](https://www.npmjs.com/package/cookie-consent-js)

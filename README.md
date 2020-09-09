@@ -49,7 +49,7 @@ So the user can anytime reconfigure, if he wants tracking or not.
 
 This framework writes a cookie (it's default name is `cookie-consent-tracking-allowed`)
 with the value `true`, if the user has accepted tracking. You can read the value with the JavaScript 
-API (`cookieConsent.trackingALlowed()`) or from any other language, which can read cookies.  
+API (`cookieConsent.trackingAllowed()`) or from any other language, which can read cookies.  
 
 ### JavaScript API
 

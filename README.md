@@ -1,6 +1,6 @@
 # cookie-consent-js
 
-A simple dialog and framework to handle the German and EU law (may 2020) about cookies in a website
+A simple dialog and framework to handle the German and EU law (as written by EuGH, 1.10.2019 – C-673/17) about cookies in a website
 
 - [Demo pages in plain HTML or with Bootstrap 4](https://shaack.com/projekte/cookie-consent-js/index.html)
 - [npm package](https://www.npmjs.com/package/cookie-consent-js)
@@ -49,7 +49,7 @@ So the user can anytime reconfigure, if he wants tracking or not.
 
 This framework writes a cookie (it's default name is `cookie-consent-tracking-allowed`)
 with the value `true`, if the user has accepted tracking. You can read the value with the JavaScript 
-API (`cookieConsent.trackingALlowed()`) or from any other language, which can read cookies.  
+API (`cookieConsent.trackingAllowed()`) or from any other language, which can read cookies.  
 
 ### JavaScript API
 

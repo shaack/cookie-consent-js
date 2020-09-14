@@ -14,6 +14,7 @@ function CookieConsent(props) {
         autoShowModal: true, // disable autoShowModal on the privacy policy page, to make that page readable
         lang: navigator.language, // the language, in which the modal is shown
         blockAccess: false, // set "true" to block the access to the website _before_ choosing a cookie configuration
+        position: "right", // position ("left" or "right"), if blockAccess is false
         content: { // the content in all needed languages
             de: {
                 title: "Cookie-Einstellungen",
@@ -53,11 +54,12 @@ function CookieConsent(props) {
          modalClass += " block-access"
     }
     this.modalContent = '<div class="' + modalClass + '">' +
+        '<div class="modal-content-wrap ' + this.props.position + '">' +
         '<div class="modal-content">' +
         '<div class="modal-header">--header--</div>' +
         '<div class="modal-body">--body--</div>' +
         '<div class="modal-footer">--footer--</div>' +
-        '</div>'
+        '</div></div>'
     this.modalContent = this.modalContent.replace(/--header--/, "<h3 class=\"modal-title\">" + _t.title + "</h3>")
     this.modalContent = this.modalContent.replace(/--body--/,
         _t.body.replace(/--privacy-policy--/, linkPrivacyPolicy)

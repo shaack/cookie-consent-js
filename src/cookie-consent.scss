@@ -6,10 +6,10 @@ $secondary: #89a; // "accept necessary" button color
   position: static;
   width: auto;
   height: auto;
-  z-index: 1000;
   font-family: sans-serif;
   .modal-content-wrap {
     position: fixed;
+    z-index: 1000;
     bottom: 0;
     margin: 1rem;
     &.right {

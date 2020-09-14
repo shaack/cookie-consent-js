@@ -45,11 +45,30 @@ So the user can anytime reconfigure, if he wants tracking or not.
  
 ...done! [Contact me](https://shaack.com), if you have questions.
  
+### 6. Enable or disable tracking depending on configuration
+
+Client side JavaScript: Surround your tracking code with
+
+```js
+if(cookieConsent.trackingAllowed()) {
+    // Google Analytics code and/or other tracking code
+}
+``` 
+
+Server side PHP: Surround your tracking code with
+```php
+if($_COOKIE['cookie-consent-tracking-allowed'] === 'true') {
+    // do some tracking
+}
+```
+
+All other languages: Just read, if the cookie `cookie-consent-tracking-allowed` is "true"
+
 ## API
 
 This framework writes a cookie (it's default name is `cookie-consent-tracking-allowed`)
-with the value `true`, if the user has accepted tracking. You can read the value with the JavaScript 
-API (`cookieConsent.trackingAllowed()`) or from any other language, which can read cookies.  
+with the value `"true"`, if the user has accepted tracking. You can read the value with the JavaScript 
+API (`cookieConsent.trackingAllowed()`) or from any other language, server or client side, which can read cookies.  
 
 ### JavaScript API
 
@@ -122,7 +141,8 @@ this.props = {
 
 ### Disable autoShow
 
-You should disable `autoShowModal` in the privacy policy page to make _that_ page readable. 
+You can disable `autoShowModal`, for instance, in the privacy policy and legal notice pages to make _these_ pages (better) readable.
+ 
 ```js
 var cookieConsent = new CookieConsent({linkPrivacyPolicy: "privacy-policy.html", autoShowModal: false})
 ```
@@ -133,4 +153,6 @@ See `./src/cookie-consent.scss` and overwrite values as you need in your project
 
 ## Disclaimer
 
-Please read the [LICENSE](./LICENSE).
+cookie-consent-js is a project of [shaack.com](https://shaack.com). 
+If you use anything from this project, do so under the [MIT-License](./LICENSE). 
+

@@ -8,7 +8,7 @@
   /* line 10, cookie-consent.scss */
   .cookie-consent-modal .modal-content-wrap {
     position: fixed;
-    z-index: 1000;
+    z-index: 1001;
     bottom: 0;
     margin: 1rem; }
     /* line 15, cookie-consent.scss */
@@ -86,6 +86,7 @@
   /* line 107, cookie-consent.scss */
   .cookie-consent-modal.block-access {
     position: fixed;
+    z-index: 1000;
     background-color: rgba(0, 0, 0, 0.5);
     padding-top: 20vh;
     left: 0;
@@ -97,13 +98,13 @@
       /* line 107, cookie-consent.scss */
       .cookie-consent-modal.block-access {
         padding-top: 0; } }
-    /* line 119, cookie-consent.scss */
+    /* line 120, cookie-consent.scss */
     .cookie-consent-modal.block-access .modal-content-wrap {
       position: relative;
       margin: 2.5% auto;
       bottom: auto;
       width: 95%; }
-      /* line 122, cookie-consent.scss */
+      /* line 123, cookie-consent.scss */
       .cookie-consent-modal.block-access .modal-content-wrap .modal-content {
         border: none;
         margin: 0 auto; }

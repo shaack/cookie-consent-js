@@ -43,8 +43,6 @@ See below "Configuration properties".
 ```
 So the user can anytime reconfigure, if he wants tracking or not.
  
-...done! [Contact me](https://shaack.com), if you have questions.
- 
 ### 6. Enable or disable tracking depending on configuration
 
 Client side JavaScript: Surround your tracking code with
@@ -63,6 +61,8 @@ if($_COOKIE['cookie-consent-tracking-allowed'] === 'true') {
 ```
 
 All other languages: Just read, if the cookie `cookie-consent-tracking-allowed` is "true"
+
+...that's all! [Contact me](https://shaack.com), if you have questions.
 
 ## API
 

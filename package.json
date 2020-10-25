@@ -2,7 +2,7 @@
   "name": "cookie-consent-js",
   "version": "1.3.11",
   "description": "A simple dialog and framework to handle the German and EU law (may 2020) about cookies in a website",
-  "main": "src/cookie-consent.js",
+  "browser": "./src/cookie-consent.js",
   "scripts": {
     "test": "tput setaf 4;echo open ./test/index.html in your browser for testing."
   },

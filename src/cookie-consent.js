@@ -15,7 +15,6 @@ function CookieConsent(props) {
         lang: navigator.language, // the language, in which the modal is shown
         blockAccess: false, // set "true" to block the access to the website _before_ choosing a cookie configuration
         position: "right", // position ("left" or "right"), if blockAccess is false
-        postSelectionCallback: undefined, // callback, after the user has made his selection
         content: { // the content in all needed languages
             de: {
                 title: "Cookie-Einstellungen",
@@ -124,16 +123,10 @@ function CookieConsent(props) {
                 this.modal.querySelector(".btn-accept-necessary").addEventListener("click", function () {
                     setCookie(self.props.cookieName, "false", 365)
                     hideDialog()
-                    if(self.props.postSelectionCallback) {
-                        self.props.postSelectionCallback()
-                    }
                 })
                 this.modal.querySelector(".btn-accept-all").addEventListener("click", function () {
                     setCookie(self.props.cookieName, "true", 365)
                     hideDialog()
-                    if(self.props.postSelectionCallback) {
-                        self.props.postSelectionCallback()
-                    }
                 })
             } else {
                 this.modal.style.display = "block"

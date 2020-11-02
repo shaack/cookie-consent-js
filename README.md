@@ -1,12 +1,9 @@
 # cookie-consent-js
 
-A simple dialog and framework to handle the German and EU law (as written by EuGH, 1.10.2019 – C-673/17) about cookies in a website
+A simple dialog and framework to handle the German and EU law (may 2020) about cookies in a website
 
 - [Demo pages in plain HTML or with Bootstrap 4](https://shaack.com/projekte/cookie-consent-js/index.html)
 - [npm package](https://www.npmjs.com/package/cookie-consent-js)
-
->  **Note** We made a new version with more detailed cookie settings, which works with Bootstrap 4. You find it
->  at https://github.com/shaack/bootstrap-cookie-consent-settings
 
 ## Usage
 
@@ -46,32 +43,13 @@ See below "Configuration properties".
 ```
 So the user can anytime reconfigure, if he wants tracking or not.
  
-### 6. Enable or disable tracking depending on configuration
-
-Client side JavaScript: Surround your tracking code with
-
-```js
-if(cookieConsent.trackingAllowed()) {
-    // Google Analytics code and/or other tracking code
-}
-``` 
-
-Server side PHP: Surround your tracking code with
-```php
-if($_COOKIE['cookie-consent-tracking-allowed'] === 'true') {
-    // do some tracking
-}
-```
-
-All other languages: Just read, if the cookie `cookie-consent-tracking-allowed` is "true"
-
-...that's all! [Contact me](https://shaack.com), if you have questions.
-
+...done! [Contact me](https://shaack.com), if you have questions.
+ 
 ## API
 
 This framework writes a cookie (it's default name is `cookie-consent-tracking-allowed`)
-with the value `"true"`, if the user has accepted tracking. You can read the value with the JavaScript 
-API (`cookieConsent.trackingAllowed()`) or from any other language, server or client side, which can read cookies.  
+with the value `true`, if the user has accepted tracking. You can read the value with the JavaScript 
+API (`cookieConsent.trackingALlowed()`) or from any other language, which can read cookies.  
 
 ### JavaScript API
 
@@ -117,8 +95,6 @@ this.props = {
     autoShowModal: true, // disable autoShowModal on the privacy policy page, to make that page readable
     lang: navigator.language, // the language, in which the modal is shown
     blockAccess: false, // set "true" to block the access to the website _before_ choosing a cookie configuration
-    position: "right", // position ("left" or "right"), if blockAccess is false
-    postSelectionCallback: undefined, // callback, after the user has made his selection
     content: { // the content in all needed languages
         de: {
             title: "Cookie-Einstellungen",
@@ -146,8 +122,7 @@ this.props = {
 
 ### Disable autoShow
 
-You can disable `autoShowModal`, for instance, in the privacy policy and legal notice pages to make _these_ pages (better) readable.
- 
+You should disable `autoShowModal` in the privacy policy page to make _that_ page readable. 
 ```js
 var cookieConsent = new CookieConsent({linkPrivacyPolicy: "privacy-policy.html", autoShowModal: false})
 ```
@@ -158,6 +133,4 @@ See `./src/cookie-consent.scss` and overwrite values as you need in your project
 
 ## Disclaimer
 
-cookie-consent-js is a project of [shaack.com](https://shaack.com). 
-If you use anything from this project, do so under the [MIT-License](./LICENSE). 
-
+Please read the [LICENSE](./LICENSE).

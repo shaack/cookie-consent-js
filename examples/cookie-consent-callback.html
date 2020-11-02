@@ -24,10 +24,11 @@
     </style>
 </head>
 <body>
-<h1>cookie-consent-js - Block content before selection</h1>
+<h1>cookie-consent-js - Reload after selection</h1>
 <a href="../index.html">&lt; Back</a>
-<p>With the `<code>blockAccess: true</code>` configurations, <b>the user is blocked from using the website</b> before accepting the cookie
-    configuration.</p>
+<p>This page is reloaded after selection, using the "postSelectionCallback".</p>
+<pre>var cookieConsent = new CookieConsent({postSelectionCallback: function() { location.reload()}, blockAccess: true})</pre>
+
 <h2>API</h2>
 <button onclick="cookieConsent.reset()">Show the cookie settings dialog</button>
 <button onclick="console.log('trackingAllowed:', cookieConsent.trackingAllowed())">Log the status to the developer console</button>
@@ -38,7 +39,7 @@
 </ul>
 <script src="../src/cookie-consent.js"></script>
 <script>
-    var cookieConsent = new CookieConsent({blockAccess: true, privacyPolicyUrl: "privacy-policy-mockup.html", cookieName: "cc-block-tracking"})
+    var cookieConsent = new CookieConsent({postSelectionCallback: function() { location.reload()}, blockAccess: true, privacyPolicyUrl: "privacy-policy-mockup.html", cookieName: "cc-block-tracking"})
 </script>
 </body>
 </html>

@@ -43,9 +43,11 @@ function CookieConsent(props) {
         // noinspection JSUnfilteredForInLoop
         this.props[property] = props[property]
     }
-    if (this.props.content[this.props.lang] !== undefined) {
-        this.lang = this.props.lang
-    } else {
+    this.lang = this.props.lang
+    if (this.lang.indexOf("-") !== -1) {
+        this.lang = this.lang.split("-")[0]
+    }
+    if (this.props.content[this.lang] === undefined) {
         this.lang = "en" // fallback
     }
     var _t = this.props.content[this.lang]

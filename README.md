@@ -5,7 +5,7 @@ A simple dialog and framework to handle the German and EU law (as written by EuG
 - [Demo pages in plain HTML or with Bootstrap 4](https://shaack.com/projekte/cookie-consent-js/index.html)
 - [npm package](https://www.npmjs.com/package/cookie-consent-js)
 
->  **Note** We made a new version with more detailed cookie settings, which works with Bootstrap 4. You find it
+>  **Note** We made another version with more detailed cookie settings, which needs Bootstrap 4. You find it
 >  at https://github.com/shaack/bootstrap-cookie-consent-settings
 
 ## Usage

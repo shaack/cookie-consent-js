@@ -3,7 +3,7 @@
 A simple dialog and framework to handle the German and EU law (as written by EuGH, 1.10.2019 – C-673/17) about cookies
 in a website.
 
-**cookie-consent-js has no external dependencies**, and it works also with bootstrap.
+**cookie-consent-js has no external dependencies**, and it works also with Bootstrap.
 
 - [Demo pages in plain HTML or with Bootstrap 4](https://shaack.com/projekte/cookie-consent-js/index.html)
 - [npm package](https://www.npmjs.com/package/cookie-consent-js)

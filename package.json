@@ -13,6 +13,8 @@
   "keywords": [
     "cookie",
     "cookie consent",
+    "dsgvo",
+    "gdpr",
     "eu",
     "law",
     "js",
@@ -23,5 +25,5 @@
   "bugs": {
     "url": "https://github.com/shaack/cookie-consent-js/issues"
   },
-  "homepage": "https://github.com/shaack/cookie-consent-js#readme"
+  "homepage": "https://github.com/shaack/cookie-consent-js"
 }

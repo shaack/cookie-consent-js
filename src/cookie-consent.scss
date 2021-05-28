@@ -3,21 +3,25 @@ $secondary: #89a; // "accept necessary" button color
 
 .cookie-consent-modal {
   padding-top: 0;
-  position: static;
+  position: fixed;
   width: auto;
   height: auto;
   z-index: 1000;
   font-family: sans-serif;
+
   .modal-content-wrap {
     position: fixed;
     bottom: 0;
     margin: 1rem;
+
     &.right {
       right: 0;
     }
+
     &.left {
       left: 0;
     }
+
     .modal-content {
       border: 1px solid rgba(0, 0, 0, 0.2);
       background-color: #fefefe; // the modals background color
@@ -116,13 +120,16 @@ $secondary: #89a; // "accept necessary" button color
     @media screen and (max-width: 620px) {
       padding-top: 0;
     }
+
     .modal-content-wrap {
       position: relative;
       margin: 2.5% auto;
+
       .modal-content {
         border: none;
         margin: 0 auto;
       }
+
       bottom: auto;
       width: 95%;
     }

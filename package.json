@@ -25,5 +25,8 @@
   "bugs": {
     "url": "https://github.com/shaack/cookie-consent-js/issues"
   },
-  "homepage": "https://github.com/shaack/cookie-consent-js"
+  "homepage": "https://github.com/shaack/cookie-consent-js",
+  "devDependencies": {
+    "teevi": "^2.1.9"
+  }
 }

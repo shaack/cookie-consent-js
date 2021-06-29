@@ -1,7 +1,7 @@
 /* line 4, cookie-consent.scss */
 .cookie-consent-modal {
   padding-top: 0;
-  position: static;
+  position: absolute;
   width: auto;
   height: auto;
   z-index: 1000;

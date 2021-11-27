@@ -5,10 +5,10 @@ in a website.
 
 **cookie-consent-js has no external dependencies**, and it works also with Bootstrap.
 
-- [Demo pages in plain HTML or with Bootstrap 4](https://shaack.com/projekte/cookie-consent-js/index.html)
+- [Demo pages in plain HTML or with Bootstrap](https://shaack.com/projekte/cookie-consent-js/index.html)
 - [npm package](https://www.npmjs.com/package/cookie-consent-js)
 
-> **Note** We made another version with more detailed cookie settings, which needs Bootstrap 4. You find it
+> **Note** We made another version with more detailed cookie settings, which needs Bootstrap. You find it
 > at https://github.com/shaack/bootstrap-cookie-consent-settings
 
 ## Usage

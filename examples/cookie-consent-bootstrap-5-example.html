@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- cookie-consent-js stylesheet -->
+    <link rel="stylesheet" href="../src/cookie-consent.css"/>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        h2 {
+            margin-top: 2rem;
+        }
+    </style>
+    <title>cookie-consent-js - Example with Bootstrap 5</title>
+</head>
+<body>
+<div class="container">
+    <h1>cookie-consent-js - Example with Bootstrap 5</h1>
+    <a href="../index.html">&lt; Back</a>
+    <h2>API</h2>
+    <button class="btn btn-primary" onclick="cookieConsent.reset()">Show the cookie settings dialog</button>
+    <button class="btn btn-primary" onclick="console.log('trackingAllowed:', cookieConsent.trackingAllowed())">Log the status to the developer console</button>
+
+    <h2>Documentation</h2>
+    <ul>
+        <li><a href="https://github.com/shaack/cookie-consent-js">View the git repository and documentation for this project</a></li>
+    </ul>
+    <script src="../src/cookie-consent.js"></script>
+    <script>
+        var cookieConsent = new CookieConsent({privacyPolicyUrl: "privacy-policy-mockup.html"})
+    </script>
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script></body>
+</html>

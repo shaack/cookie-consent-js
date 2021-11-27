@@ -6,6 +6,7 @@
   z-index: 1000;
   font-family: sans-serif; }
   .cookie-consent-modal .modal-content-wrap {
+    position: fixed;
     bottom: 0;
     margin: 1rem; }
     .cookie-consent-modal .modal-content-wrap.right {

@@ -6,7 +6,7 @@
 
 function CookieConsent(props) {
 
-    var self = this
+    const self = this
     this.props = {
         buttonPrimaryClass: "btn btn-primary", // the "accept all" buttons class, only used for styling
         buttonSecondaryClass: "btn btn-secondary", // the "accept necessary" buttons class, only used for styling
@@ -48,7 +48,7 @@ function CookieConsent(props) {
         cookieName: "cookie-consent-tracking-allowed",  // the name of the cookie, the cookie is `true` if tracking was accepted
         modalId: "cookieConsentModal" // the id of the modal dialog element
     }
-    for (var property in props) {
+    for (let property in props) {
         // noinspection JSUnfilteredForInLoop
         this.props[property] = props[property]
     }
@@ -59,19 +59,20 @@ function CookieConsent(props) {
     if (this.props.content[this.lang] === undefined) {
         this.lang = "en" // fallback
     }
-    var _t = this.props.content[this.lang]
-    var linkPrivacyPolicy = '<a href="' + this.props.privacyPolicyUrl + '">' + _t.privacyPolicy + '</a>'
-    var modalClass = "cookie-consent-modal"
+    const _t = this.props.content[this.lang]
+    const linkPrivacyPolicy = '<a href="' + this.props.privacyPolicyUrl + '">' + _t.privacyPolicy + '</a>'
+    let modalClass = "cookie-consent-modal"
     if (this.props.blockAccess) {
          modalClass += " block-access"
     }
-    this.modalContent = '<div class="' + modalClass + '">' +
+    this.modalContent = '<!-- cookie banner => https://github.com/shaack/cookie-consent-js -->' +
+        '<div class="' + modalClass + '">' +
         '<div class="modal-content-wrap ' + this.props.position + '">' +
         '<div class="modal-content">' +
         '<div class="modal-header">--header--</div>' +
         '<div class="modal-body">--body--</div>' +
         '<div class="modal-footer">--footer--</div>' +
-        '</div></div>'
+        '</div></div><!-- end cookie-consent.js -->'
     this.modalContent = this.modalContent.replace(/--header--/, "<h3 class=\"modal-title\">" + _t.title + "</h3>")
     this.modalContent = this.modalContent.replace(/--body--/,
         _t.body.replace(/--privacy-policy--/, linkPrivacyPolicy)
@@ -84,9 +85,9 @@ function CookieConsent(props) {
     )
 
     function setCookie(name, value, days) {
-        var expires = ""
+        let expires = ""
         if (days) {
-            var date = new Date()
+            const date = new Date()
             date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000))
             expires = "; expires=" + date.toUTCString()
         }
@@ -94,10 +95,10 @@ function CookieConsent(props) {
     }
 
     function getCookie(name) {
-        var nameEQ = name + "="
-        var ca = document.cookie.split(';')
-        for (var i = 0; i < ca.length; i++) {
-            var c = ca[i]
+        const nameEQ = name + "="
+        const ca = document.cookie.split(';')
+        for (let i = 0; i < ca.length; i++) {
+            let c = ca[i]
             while (c.charAt(0) === ' ') {
                 c = c.substring(1, c.length)
             }

@@ -26,6 +26,15 @@ function CookieConsent(props) {
                 buttonAcceptAll: "Alle Cookies akzeptieren",
                 buttonAcceptTechnical: "Nur technisch notwendige Cookies akzeptieren"
             },
+            oc: {
+                title: "Paramètres de cookies",
+                body: "Utilizam los cookies per personalizar lo contengut e analisar l'accès a nòstre site web. " +
+                    "Podètz causir d'acceptar sonque les cookies que son necessaris al foncionament del site web " +
+                    "o siá se volètz tanben autorizar los cookies de seguiment. Per mai d'informacions, consultatz nòstra --privacy-policy--.",
+                privacyPolicy: "politica de confidencialitat",
+                buttonAcceptAll: "Acceptar totes los cookies",
+                buttonAcceptTechnical: "Acceptar sonque los cookies tecnics necessaris"
+            },            
             en: {
                 title: "Cookie settings",
                 body: "We use cookies to personalize content and analyze access to our website. " +

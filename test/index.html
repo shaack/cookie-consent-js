@@ -4,18 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>cookie-consent-js test</title>
-    <link href="../node_modules/mocha/mocha.css" rel="stylesheet"/>
     <link href="../src/cookie-consent.css" rel="stylesheet"/>
+    <script src="../src/cookie-consent.js"></script>
 </head>
 <body>
 <div id="mocha"></div>
-<script src="../node_modules/mocha/mocha.js"></script>
-<script src="../node_modules/chai/chai.js"></script>
-<script>mocha.setup('bdd')</script>
-<script src="../src/cookie-consent.js"></script>
-<script src="./test.js"></script>
-<script>
-    mocha.run()
+<script type="module">
+    import {teevi} from "../node_modules/teevi/src/teevi.js"
+    import "./Test.js"
+    teevi.run()
 </script>
 </body>
 </html>

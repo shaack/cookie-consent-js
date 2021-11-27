@@ -1,43 +1,54 @@
-var assert = chai.assert
+/**
+ * Author and copyright: Stefan Haack (https://shaack.com)
+ * Repository: https://github.com/shaack/cm-chessboard
+ * License: MIT, see file 'LICENSE'
+ */
 
-beforeEach(function () {
+import {describe, it, assert} from "../node_modules/teevi/src/teevi.js"
+
+const beforeEach = function () {
     removeCookie("cookie-consent-tracking-allowed")
     if(document.getElementById("cookieConsentModal")) {
         document.getElementById("cookieConsentModal").remove()
     }
-})
+}
 
 describe('cookie-consent', function () {
     it('Should display a dialog', function () {
+        beforeEach()
         // noinspection JSUnusedLocalSymbols
         var cookieConsent = new CookieConsent()
-        assert.notEqual(document.getElementById("cookieConsentModal"), null)
+        assert.true(document.getElementById("cookieConsentModal") !== null)
     })
     it('Should not display a dialog if autoShowModal is false', function () {
+        beforeEach()
         // noinspection JSUnusedLocalSymbols
         var cookieConsent = new CookieConsent({autoShowModal: false})
-        assert.equal(document.getElementById("cookieConsentModal"), null)
+        assert.equals(document.getElementById("cookieConsentModal"), null)
     })
     it('Should display the dialog on reset()', function() {
+        beforeEach()
         var cookieConsent = new CookieConsent({autoShowModal: false})
-        assert.equal(document.getElementById("cookieConsentModal"), null)
+        assert.equals(document.getElementById("cookieConsentModal"), null)
         cookieConsent.reset()
-        assert.notEqual(document.getElementById("cookieConsentModal"), null)
+        assert.true(document.getElementById("cookieConsentModal") !== null)
     })
     it('Should write a cookie if accepted', function() {
+        beforeEach()
         var cookieConsent = new CookieConsent()
-        assert.equal(cookieConsent.trackingAllowed(), false)
+        assert.equals(cookieConsent.trackingAllowed(), false)
         document.getElementById("cookieConsentModal").querySelector(".btn-accept-all").click()
-        assert.equal(cookieConsent.trackingAllowed(), true)
+        assert.equals(cookieConsent.trackingAllowed(), true)
     })
     it('Should write a cookie if not accepted', function() {
+        beforeEach()
         var cookieConsent = new CookieConsent()
-        assert.equal(cookieConsent.trackingAllowed(), false)
+        assert.equals(cookieConsent.trackingAllowed(), false)
         document.getElementById("cookieConsentModal").querySelector(".btn-accept-necessary").click()
-        assert.equal(cookieConsent.trackingAllowed(), false)
+        assert.equals(cookieConsent.trackingAllowed(), false)
     })
 })
-
+/*
 function setCookie(name, value, days) {
     var expires = ""
     if (days) {
@@ -47,7 +58,8 @@ function setCookie(name, value, days) {
     }
     document.cookie = name + "=" + (value || "") + expires + "; Path=/; SameSite=Strict;"
 }
-
+*/
+/*
 function getCookie(name) {
     var nameEQ = name + "="
     var ca = document.cookie.split(';')
@@ -62,6 +74,7 @@ function getCookie(name) {
     }
     return undefined
 }
+*/
 
 function removeCookie(name) {
     document.cookie = name + '=; Path=/; SameSite=Strict; Expires=Thu, 01 Jan 1970 00:00:01 GMT;'

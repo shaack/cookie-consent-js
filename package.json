@@ -1,6 +1,6 @@
 {
   "name": "cookie-consent-js",
-  "version": "1.4.10",
+  "version": "1.4.12",
   "description": "A simple dialog and framework to handle the German and EU law (may 2020) about cookies in a website",
   "main": "src/cookie-consent.js",
   "scripts": {
@@ -25,5 +25,8 @@
   "bugs": {
     "url": "https://github.com/shaack/cookie-consent-js/issues"
   },
-  "homepage": "https://github.com/shaack/cookie-consent-js"
+  "homepage": "https://github.com/shaack/cookie-consent-js",
+  "devDependencies": {
+    "teevi": "^2.1.9"
+  }
 }

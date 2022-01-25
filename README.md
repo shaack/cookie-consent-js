@@ -159,8 +159,8 @@ this.props = {
 
 ### Disable autoShow
 
-You can disable `autoShowModal`, for instance, in the privacy policy and legal notice pages to make _these_ pages (
-better) readable.
+You can disable `autoShowModal`, for instance, in the privacy policy and legal notice pages to make _these_ pages 
+better readable.
 
 ```js
 var cookieConsent = new CookieConsent({linkPrivacyPolicy: "privacy-policy.html", autoShowModal: false})
@@ -168,7 +168,7 @@ var cookieConsent = new CookieConsent({linkPrivacyPolicy: "privacy-policy.html",
 
 ## Styling
 
-See `./src/cookie-consent.scss` and overwrite values as you need in your projects stylesheet.
+See `./src/cookie-consent.scss` and overwrite values as you need in your project's stylesheet.
 
 ## Disclaimer
 

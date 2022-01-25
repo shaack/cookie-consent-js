@@ -8,11 +8,11 @@ $gray-600: #6c757d !default;
 $gray-900: #212529 !default;
 $black: #000 !default;
 
-// element colors
-$link-hover-shade: 10% !default;
 $primary: $blue !default; // "accept all" button and privacy policy link color
 $secondary: $gray-600 !default; // "accept necessary" button color
 
+// element colors
+$link-hover-shade: 10% !default;
 $body-bg: $white !default;
 $body-color: $gray-900 !default;
 $link-color: $primary !default;

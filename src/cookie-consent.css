@@ -45,7 +45,6 @@
           flex-wrap: wrap; }
           .cookie-consent-modal .modal-content-wrap .modal-content .modal-footer .buttons .btn {
             padding: 0.375rem 0.75rem;
-            cursor: pointer;
             border: 1px solid #212529;
             border-radius: 0.2rem;
             margin-left: 0.5rem;

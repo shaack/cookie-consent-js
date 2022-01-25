@@ -4,10 +4,11 @@
  * License: MIT, see file 'LICENSE'
  */
 
+"use strict";
 function CookieConsent(props) {
 
     const self = this
-    this.props = {
+    self.props = {
         buttonPrimaryClass: "btn btn-primary", // the "accept all" buttons class, only used for styling
         buttonSecondaryClass: "btn btn-secondary", // the "accept necessary" buttons class, only used for styling
         privacyPolicyUrl: "privacy-policy.html",
@@ -34,7 +35,7 @@ function CookieConsent(props) {
                 privacyPolicy: "politica de confidencialitat",
                 buttonAcceptAll: "Acceptar totes los cookies",
                 buttonAcceptTechnical: "Acceptar sonque los cookies tecnics necessaris"
-            },            
+            },
             en: {
                 title: "Cookie settings",
                 body: "We use cookies to personalize content and analyze access to our website. " +
@@ -50,37 +51,37 @@ function CookieConsent(props) {
     }
     for (let property in props) {
         // noinspection JSUnfilteredForInLoop
-        this.props[property] = props[property]
+        self.props[property] = props[property]
     }
-    this.lang = this.props.lang
-    if (this.lang.indexOf("-") !== -1) {
-        this.lang = this.lang.split("-")[0]
+    self.lang = self.props.lang
+    if (self.lang.indexOf("-") !== -1) {
+        self.lang = self.lang.split("-")[0]
     }
-    if (this.props.content[this.lang] === undefined) {
-        this.lang = "en" // fallback
+    if (self.props.content[self.lang] === undefined) {
+        self.lang = "en" // fallback
     }
-    const _t = this.props.content[this.lang]
-    const linkPrivacyPolicy = '<a href="' + this.props.privacyPolicyUrl + '">' + _t.privacyPolicy + '</a>'
+    const _t = self.props.content[self.lang]
+    const linkPrivacyPolicy = '<a href="' + self.props.privacyPolicyUrl + '">' + _t.privacyPolicy + '</a>'
     let modalClass = "cookie-consent-modal"
-    if (this.props.blockAccess) {
+    if (self.props.blockAccess) {
          modalClass += " block-access"
     }
-    this.modalContent = '<!-- cookie banner => https://github.com/shaack/cookie-consent-js -->' +
+    self.modalContent = '<!-- cookie banner => https://github.com/shaack/cookie-consent-js -->' +
         '<div class="' + modalClass + '">' +
-        '<div class="modal-content-wrap ' + this.props.position + '">' +
+        '<div class="modal-content-wrap ' + self.props.position + '">' +
         '<div class="modal-content">' +
         '<div class="modal-header">--header--</div>' +
         '<div class="modal-body">--body--</div>' +
         '<div class="modal-footer">--footer--</div>' +
         '</div></div><!-- end cookie-consent.js -->'
-    this.modalContent = this.modalContent.replace(/--header--/, "<h3 class=\"modal-title\">" + _t.title + "</h3>")
-    this.modalContent = this.modalContent.replace(/--body--/,
+    self.modalContent = self.modalContent.replace(/--header--/, "<h3 class=\"modal-title\">" + _t.title + "</h3>")
+    self.modalContent = self.modalContent.replace(/--body--/,
         _t.body.replace(/--privacy-policy--/, linkPrivacyPolicy)
     )
-    this.modalContent = this.modalContent.replace(/--footer--/,
+    self.modalContent = self.modalContent.replace(/--footer--/,
         "<div class='buttons'>" +
-        "<button class='btn-accept-necessary " + this.props.buttonSecondaryClass + "'>" + _t.buttonAcceptTechnical + "</button>" +
-        "<button class='btn-accept-all " + this.props.buttonPrimaryClass + "'>" + _t.buttonAcceptAll + "</button>" +
+        "<button class='btn-accept-necessary " + self.props.buttonSecondaryClass + "'>" + _t.buttonAcceptTechnical + "</button>" +
+        "<button class='btn-accept-all " + self.props.buttonPrimaryClass + "'>" + _t.buttonAcceptAll + "</button>" +
         "</div>"
     )
 
@@ -122,25 +123,25 @@ function CookieConsent(props) {
     }
 
     function hideDialog() {
-        this.modal.style.display = "none"
+        self.modal.style.display = "none"
     }
 
     function showDialog() {
         documentReady(function () {
-            this.modal = document.getElementById(self.props.modalId)
-            if (!this.modal) {
-                this.modal = document.createElement("div")
-                this.modal.id = self.props.modalId
-                this.modal.innerHTML = self.modalContent
-                document.body.append(this.modal)
-                this.modal.querySelector(".btn-accept-necessary").addEventListener("click", function () {
+            self.modal = document.getElementById(self.props.modalId)
+            if (!self.modal) {
+                self.modal = document.createElement("div")
+                self.modal.id = self.props.modalId
+                self.modal.innerHTML = self.modalContent
+                document.body.append(self.modal)
+                self.modal.querySelector(".btn-accept-necessary").addEventListener("click", function () {
                     setCookie(self.props.cookieName, "false", 365)
                     hideDialog()
                     if(self.props.postSelectionCallback) {
                         self.props.postSelectionCallback()
                     }
                 })
-                this.modal.querySelector(".btn-accept-all").addEventListener("click", function () {
+                self.modal.querySelector(".btn-accept-all").addEventListener("click", function () {
                     setCookie(self.props.cookieName, "true", 365)
                     hideDialog()
                     if(self.props.postSelectionCallback) {
@@ -148,23 +149,23 @@ function CookieConsent(props) {
                     }
                 })
             } else {
-                this.modal.style.display = "block"
+                self.modal.style.display = "block"
             }
         }.bind(this))
     }
 
-    if (getCookie(this.props.cookieName) === undefined && this.props.autoShowModal) {
+    if (getCookie(self.props.cookieName) === undefined && self.props.autoShowModal) {
         showDialog()
     }
 
     // API
-    this.reset = function () {
-        removeCookie(this.props.cookieName)
+    self.reset = function () {
+        removeCookie(self.props.cookieName)
         showDialog()
     }
 
-    this.trackingAllowed = function () {
-        return getCookie(this.props.cookieName) === "true"
+    self.trackingAllowed = function () {
+        return getCookie(self.props.cookieName) === "true"
     }
 
 }

@@ -1,5 +1,31 @@
-$primary: #3579F6; // "accept all" button and privacy policy link color
-$secondary: #89a; // "accept necessary" button color
+// colors
+$white: #fff !default;
+$blue: #0d6efd !default;
+$gray-100: #f8f9fa !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-600: #6c757d !default;
+$gray-900: #212529 !default;
+$black: #000 !default;
+
+$link-hover-shade: 10% !default;
+$primary: $blue !default; // "accept all" button and privacy policy link color
+$secondary: $gray-600 !default; // "accept necessary" button color
+
+$body-bg: $white !default;
+$body-color: $gray-900 !default;
+$link-color: $primary !default;
+$link-hover-color: darken($link-color, $link-hover-shade) !default;
+$border-color: $gray-400 !default;
+$light: $gray-100 !default;
+$box-shadow-lg: 0 1rem 2rem rgba($black, .4) !default;
+$layer-color: rgba(0, 0, 0, 0.5) !default; // the fullsize layer, when access is blocked
+
+// metrics
+$input-btn-padding-y: .375rem !default;
+$input-btn-padding-x: .75rem !default;;
+$btn-padding-y: $input-btn-padding-y !default;
+$btn-padding-x: $input-btn-padding-x !default;
 
 .cookie-consent-modal {
   padding-top: 0;
@@ -23,10 +49,10 @@ $secondary: #89a; // "accept necessary" button color
     }
 
     .modal-content {
-      border: 1px solid rgba(0, 0, 0, 0.2);
-      background-color: #fefefe; // the modals background color
-      color: #123; // the modals text color
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4); // the modals shadow
+      border: 1px solid $border-color;
+      background-color: $light; // the modals background color
+      color: $body-color; // the modals text color
+      box-shadow: $box-shadow-lg; // the modals shadow
       padding: 0;
       // width: 95%;
       max-width: 700px;
@@ -34,7 +60,7 @@ $secondary: #89a; // "accept necessary" button color
 
       .modal-header {
         padding: 1rem;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1); // bootstrap-like lines
+        border-bottom: $border-color; // bootstrap-like lines
 
         h3 {
           margin: 0;
@@ -53,7 +79,7 @@ $secondary: #89a; // "accept necessary" button color
           color: $primary;
 
           &:hover {
-            color: darken($primary, 10%);
+            color: $link-hover-color;
           }
         }
       }
@@ -68,32 +94,37 @@ $secondary: #89a; // "accept necessary" button color
           flex-wrap: wrap;
 
           .btn {
-            padding: 0.7rem 1.1rem;
-            font-size: 100%;
+            padding: $input-btn-padding-y $input-btn-padding-x;
             cursor: pointer;
-            border: none;
+            border: 1px solid $gray-900;
             border-radius: 0.2rem;
             margin-left: 0.5rem;
             margin-right: 0.5rem;
             margin-bottom: 0.5rem;
+            font-size: 1rem;
+            line-height: 1.5;
 
             // "accept all" button
             &.btn-primary {
               background-color: $primary;
-              color: white;
+              color: $white;
+              border-color: $primary;
 
               &:hover {
-                background-color: darken($primary, 10%);
+                background-color: $link-hover-color;
+                border-color: $link-hover-color;
               }
             }
 
             // "accept necessary" button
             &.btn-secondary {
               background-color: $secondary;
-              color: white;
+              color: $white;
+              border-color: $secondary;
 
               &:hover {
                 background-color: darken($secondary, 10%);
+                border-color: darken($secondary, 10%);
               }
             }
           }

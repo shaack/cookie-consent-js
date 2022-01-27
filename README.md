@@ -3,13 +3,16 @@
 A simple dialog and framework to handle the German and EU law (as written by EuGH, 1.10.2019 – C-673/17) about cookies
 in a website.
 
-**cookie-consent-js has no external dependencies**, and it works also with Bootstrap.
+## Features
 
-- [Demo pages in plain HTML or with Bootstrap](https://shaack.com/projekte/cookie-consent-js/index.html)
-- [npm package](https://www.npmjs.com/package/cookie-consent-js)
+- **cookie-consent-js has no external dependencies** – and it works also with Bootstrap.
+- **cookie-consent-js is responsive**, it works on mobile and desktop devices.
+- You can customize cookie-consent-js with its properties, add [translations](https://shaack.com/projekte/cookie-consent-js/examples/cookie-consent-add-translations.html) and change its behaviour.
+- Customize **cookie-consent-js** via `css` or `scss` to fit your website.
 
-> **Note** We made another version with more detailed cookie settings, which needs Bootstrap. You find it
-> at https://github.com/shaack/bootstrap-cookie-consent-settings
+## See it in action
+
+- [Demo pages with usage examples](https://shaack.com/projekte/cookie-consent-js/index.html)
 
 ## Usage
 
@@ -123,15 +126,16 @@ if($_COOKIE['cookie-consent-tracking-allowed'] === 'true') {
 With default values.
 
 ```js
-this.props = {
+self.props = {
     buttonPrimaryClass: "btn btn-primary", // the "accept all" buttons class, only used for styling
     buttonSecondaryClass: "btn btn-secondary", // the "accept necessary" buttons class, only used for styling
     privacyPolicyUrl: "privacy-policy.html",
     autoShowModal: true, // disable autoShowModal on the privacy policy page, to make that page readable
-    lang: navigator.language, // the language, in which the modal is shown
     blockAccess: false, // set "true" to block the access to the website before choosing a cookie configuration
     position: "right", // position ("left" or "right"), if blockAccess is false
     postSelectionCallback: undefined, // callback, after the user has made his selection
+    lang: navigator.language, // the language, in which the dialog is shown
+    defaultLang: "en", // default language, if the `lang` is not available as translation in `content`
     content: { // the content in all needed languages
         de: {
             title: "Cookie-Einstellungen",

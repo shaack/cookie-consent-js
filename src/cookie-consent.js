@@ -51,7 +51,6 @@ function CookieConsent(props) {
         // noinspection JSUnfilteredForInLoop
         self.props.content[contentProperty] = props.content[contentProperty]
     }
-    console.log(self.props)
     self.lang = self.props.lang
     if (self.lang.indexOf("-") !== -1) {
         self.lang = self.lang.split("-")[0]

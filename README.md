@@ -1,6 +1,6 @@
 # cookie-consent-js
 
-A simple dialog and framework to handle the German and EU law (as written by EuGH, 1.10.2019 – C-673/17) about cookies
+A simple dialog and framework to handle the EU law (as written by EuGH, 1.10.2019 – C-673/17) about cookies
 in a website.
 
 ## Features

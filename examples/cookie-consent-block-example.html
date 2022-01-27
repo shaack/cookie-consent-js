@@ -24,18 +24,13 @@
     </style>
 </head>
 <body>
-<h1>cookie-consent-js - banner blocking access</h1>
-<a href="../index.html">&lt; Back</a>
+<h1><a href="../index.html">cookie-consent-js</a> - banner blocking access</h1>
 <p>With the `<code>blockAccess: true</code>` configurations, <b>the user is blocked from using the website</b> before accepting the cookie
     configuration.</p>
 <h2>API</h2>
 <button onclick="cookieConsent.reset()">Show the cookie settings dialog</button>
 <button onclick="console.log('trackingAllowed:', cookieConsent.trackingAllowed())">Log the status to the developer console</button>
 
-<h2>Documentation</h2>
-<ul>
-    <li><a href="https://github.com/shaack/cookie-consent-js">View the git repository and documentation for this project</a></li>
-</ul>
 <script src="../src/cookie-consent.js"></script>
 <script>
     var cookieConsent = new CookieConsent({blockAccess: true, privacyPolicyUrl: "privacy-policy-mockup.html", cookieName: "cc-block-tracking"})

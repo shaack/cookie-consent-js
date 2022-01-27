@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- cookie-consent-js stylesheet -->
+    <link rel="stylesheet" href="../src/cookie-consent.css"/>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        h1, h2 {
+            margin-top: 2rem;
+        }
+    </style>
+    <title>cookie-consent-js - Example with Bootstrap 5</title>
+</head>
+<body>
+<div class="container">
+    <h1><a href="../index.html">cookie-consent-js</a> - Example how to add languages and translations</h1>
+    <h2>Add Occitan ("oc") translation to your banner</h2>
+
+    <p>You can add translations via the <code>props</code> parameter.</p>
+
+    <p>The languages "en" and "de" are set as default. You can overwrite them or leave them as they are. If you don't want
+    these translations to be shown, set its locales to <code>undefined</code>.</p>
+
+    <pre class="bg-light p-4"><code>const cookieConsent = new CookieConsent({
+    privacyPolicyUrl: "privacy-policy-mockup.html",
+    defaultLang: "oc", // set "oc" as default fallback language
+    content: { // the content the needed languages for your website
+        de: undefined, // remove "de"
+        oc: { // add "oc"
+            title: "Paramètres de cookies",
+            body: "Utilizam los cookies per personalizar lo contengut e analisar l'accès a nòstre site web. " +
+                "Podètz causir d'acceptar sonque les cookies que son necessaris al foncionament del site web " +
+                "o siá se volètz tanben autorizar los cookies de seguiment. Per mai d'informacions, consultatz nòstra --privacy-policy--.",
+            privacyPolicy: "politica de confidencialitat",
+            buttonAcceptAll: "Acceptar totes los cookies",
+            buttonAcceptTechnical: "Acceptar sonque los cookies tecnics necessaris"
+        }
+    }
+})</code></pre>
+
+    <button class="btn btn-primary mb-2" onclick="cookieConsent.reset()">Show the cookie settings dialog</button>
+    <button class="btn btn-primary mb-2" onclick="console.log('trackingAllowed:', cookieConsent.trackingAllowed())">Log the status to the developer console</button>
+
+    <script src="../src/cookie-consent.js"></script>
+    <script>
+        const cookieConsent = new CookieConsent({
+            privacyPolicyUrl: "privacy-policy-mockup.html",
+            defaultLang: "oc", // set "oc" as default fallback language
+            content: { // the content the needed languages for your website
+                de: undefined, // remove "de"
+                oc: { // add "oc"
+                    title: "Paramètres de cookies",
+                    body: "Utilizam los cookies per personalizar lo contengut e analisar l'accès a nòstre site web. " +
+                        "Podètz causir d'acceptar sonque les cookies que son necessaris al foncionament del site web " +
+                        "o siá se volètz tanben autorizar los cookies de seguiment. Per mai d'informacions, consultatz nòstra --privacy-policy--.",
+                    privacyPolicy: "politica de confidencialitat",
+                    buttonAcceptAll: "Acceptar totes los cookies",
+                    buttonAcceptTechnical: "Acceptar sonque los cookies tecnics necessaris"
+                }
+            }
+        })
+    </script>
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script></body>
+</html>

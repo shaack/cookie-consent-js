@@ -13,10 +13,11 @@ function CookieConsent(props) {
         buttonSecondaryClass: "btn btn-secondary", // the "accept necessary" buttons class, only used for styling
         privacyPolicyUrl: "privacy-policy.html",
         autoShowModal: true, // disable autoShowModal on the privacy policy page, to make that page readable
-        lang: navigator.language, // the language, in which the modal is shown
         blockAccess: false, // set "true" to block the access to the website before choosing a cookie configuration
         position: "right", // position ("left" or "right"), if blockAccess is false
         postSelectionCallback: undefined, // callback, after the user has made his selection
+        lang: navigator.language, // the language, in which the dialog is shown
+        defaultLang: "en", // default language, if the `lang` is not available as translation in `content`
         content: { // the content in all needed languages
             de: {
                 title: "Cookie-Einstellungen",
@@ -41,15 +42,22 @@ function CookieConsent(props) {
         modalId: "cookieConsentModal" // the id of the modal dialog element
     }
     for (let property in props) {
-        // noinspection JSUnfilteredForInLoop
-        self.props[property] = props[property]
+        if(property !== "content") {
+            // noinspection JSUnfilteredForInLoop
+            self.props[property] = props[property]
+        }
     }
+    for (let contentProperty in props.content) {
+        // noinspection JSUnfilteredForInLoop
+        self.props.content[contentProperty] = props.content[contentProperty]
+    }
+    console.log(self.props)
     self.lang = self.props.lang
     if (self.lang.indexOf("-") !== -1) {
         self.lang = self.lang.split("-")[0]
     }
     if (self.props.content[self.lang] === undefined) {
-        self.lang = "en" // fallback
+        self.lang = self.props.defaultLang
     }
     const _t = self.props.content[self.lang]
     const linkPrivacyPolicy = '<a href="' + self.props.privacyPolicyUrl + '">' + _t.privacyPolicy + '</a>'

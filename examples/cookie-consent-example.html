@@ -24,16 +24,10 @@
     </style>
 </head>
 <body>
-<h1>cookie-consent-js - Example with plain HTML</h1>
-<a href="../index.html">&lt; Back</a>
+<h1><a href="../index.html">cookie-consent-js</a> - Example with plain HTML</h1>
 <h2>API</h2>
 <button onclick="cookieConsent.reset()">Show the cookie settings dialog</button>
 <button onclick="console.log('trackingAllowed:', cookieConsent.trackingAllowed())">Log the status to the developer console</button>
-
-<h2>Documentation</h2>
-<ul>
-    <li><a href="https://github.com/shaack/cookie-consent-js">View the git repository and documentation for this project</a></li>
-</ul>
 <script src="../src/cookie-consent.js"></script>
 <script>
     var cookieConsent = new CookieConsent({privacyPolicyUrl: "privacy-policy-mockup.html"})

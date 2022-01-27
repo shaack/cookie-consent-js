@@ -172,6 +172,9 @@ See `./src/cookie-consent.scss` and overwrite values as you need in your project
 
 ## Disclaimer
 
-cookie-consent-js is a project of [shaack.com](https://shaack.com). If you use anything from this project, do so under
-the [MIT-License](./LICENSE). 
+You can use this banner for your website free of charge under the [MIT-License](./LICENSE).
 
+The banner and framework was designed in cooperation with data protection officers and lawyers. However, we can not 
+guarantee whether the banner is correct for your website and assume no liability for its use.
+
+cookie-consent-js is a project of [shaack.com](https://shaack.com).

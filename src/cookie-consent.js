@@ -36,6 +36,15 @@ function CookieConsent(props) {
                 privacyPolicy: "privacy policy",
                 buttonAcceptAll: "Accept all cookies",
                 buttonAcceptTechnical: "Only accept technically necessary cookies"
+            },
+            tr: {
+                title: "Çerez Ayarları",
+                body: "Sitemizde içeriklerin kişiselleştirilmesi ve erişim analizleri için çerezleri kullanmaktayız. " +
+                    "Sadece sitenin işleyişi için gerekli olan çerezlerin çalışmasını onaylayabilir veya kullanıcı davranışları " +
+                    "için olan çerezleri kabul edebilirsiniz. Daha fazla bilgi için --gizlilik sözleşmesi-- metnini okuyabilirsiniz.",
+                privacyPolicy: "gizlilik sözleşmesi",
+                buttonAcceptAll: "Tüm çerezleri kabul et",
+                buttonAcceptTechnical: "Sadece zorunlu tekniksel çerezleri kabul et"
             }
         },
         cookieName: "cookie-consent-tracking-allowed",  // the name of the cookie, the cookie is `true` if tracking was accepted

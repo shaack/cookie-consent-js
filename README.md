@@ -3,7 +3,8 @@
 A simple dialog and framework to handle the EU law (as written by EuGH, 1.10.2019 – C-673/17) about cookies in a
 website.
 
-Supports the languages en, de and oc
+Existing language files for en, de and oc. If you add one, please make a pull request to have it added here as well, 
+thanks.
 
 ## Features
 

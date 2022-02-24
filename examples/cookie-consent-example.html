@@ -12,14 +12,7 @@
             line-height: 1.4;
         }
         button {
-            border: 1px solid black;
             padding: 0.5rem 1rem;
-            cursor: pointer;
-            font-size: 100%;
-            background-color: #eee;
-            margin-right: 0.5rem;
-            margin-bottom: 0.5rem;
-            border-radius: 0.2rem;
         }
     </style>
 </head>
@@ -27,10 +20,15 @@
 <h1><a href="../index.html">cookie-consent-js</a> - Example with plain HTML</h1>
 <h2>API</h2>
 <button onclick="cookieConsent.reset()">Show the cookie settings dialog</button>
-<button onclick="console.log('trackingAllowed:', cookieConsent.trackingAllowed())">Log the status to the developer console</button>
+<button onclick="console.log('trackingAllowed:', cookieConsent.trackingAllowed())">Log the status to the developer
+    console
+</button>
 <script src="../src/cookie-consent.js"></script>
 <script>
-    var cookieConsent = new CookieConsent({privacyPolicyUrl: "privacy-policy-mockup.html"})
+    const cookieConsent = new CookieConsent({
+        contentPath: "../cookie-consent-content",
+        privacyPolicyUrl: "privacy-policy-mockup.html"
+    })
 </script>
 </body>
 </html>

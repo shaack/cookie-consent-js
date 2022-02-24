@@ -25,7 +25,6 @@ Alternatively you can download the [git repository](https://github.com/shaack/co
 ### 2. Include `cookie-consent.css`
 
 ```html
-
 <link rel="stylesheet" href="/node_modules/cookie-consent-js/src/cookie-consent.css"/>
 ```
 
@@ -35,7 +34,6 @@ look at [cookie-consent.scss](https://github.com/shaack/cookie-consent-js/blob/m
 ### 3. Include `cookie-consent.js`
 
 ```html
-
 <script src="/node_modules/cookie-consent-js/src/cookie-consent.js"></script>
 ```
 
@@ -135,8 +133,8 @@ self.props = {
     position: "right", // position ("left" or "right"), if blockAccess is false
     postSelectionCallback: undefined, // callback, after the user has made his selection
     lang: navigator.language, // the language, in which the dialog is shown
-    defaultLang: "en", // default language, if the `lang` is not available as translation in `content`
-    content: { // the content in all needed languages
+    defaultLang: "en", // default language, if the `lang` is not available as translation in `cookie-consent-content`
+    content: { // the cookie-consent-content in all needed languages
         de: {
             title: "Cookie-Einstellungen",
             body: "Wir nutzen Cookies, um Inhalte zu personalisieren und die Zugriffe auf unsere Website zu analysieren. " +
@@ -148,7 +146,7 @@ self.props = {
         },
         en: {
             title: "Cookie settings",
-            body: "We use cookies to personalize content and analyze access to our website. " +
+            body: "We use cookies to personalize cookie-consent-content and analyze access to our website. " +
                 "You can choose whether you only accept cookies that are necessary for the functioning of the website " +
                 "or whether you also want to allow tracking cookies. For more information, please refer to our --privacy-policy--.",
             privacyPolicy: "privacy policy",

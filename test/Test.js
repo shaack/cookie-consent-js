@@ -8,7 +8,7 @@ import {describe, it, assert} from "../node_modules/teevi/src/teevi.js"
 
 const beforeEach = function () {
     removeCookie("cookie-consent-tracking-allowed")
-    if(document.getElementById("cookieConsentModal")) {
+    if (document.getElementById("cookieConsentModal")) {
         document.getElementById("cookieConsentModal").remove()
     }
 }
@@ -17,35 +17,59 @@ describe('cookie-consent', function () {
     it('Should display a dialog', function () {
         beforeEach()
         // noinspection JSUnusedLocalSymbols
-        var cookieConsent = new CookieConsent()
-        assert.true(document.getElementById("cookieConsentModal") !== null)
+        const cookieConsent = new CookieConsent({
+            contentUrl: "../cookie-consent-content",
+            postSelectionCallback: () => {
+                assert.true(document.getElementById("cookieConsentModal") !== null)
+            }
+        })
+
     })
     it('Should not display a dialog if autoShowModal is false', function () {
         beforeEach()
         // noinspection JSUnusedLocalSymbols
-        var cookieConsent = new CookieConsent({autoShowModal: false})
-        assert.equals(document.getElementById("cookieConsentModal"), null)
+        const cookieConsent = new CookieConsent({
+            contentUrl: "../cookie-consent-content",
+            autoShowModal: false,
+            postSelectionCallback: () => {
+                assert.equals(document.getElementById("cookieConsentModal"), null)
+            }
+        })
+
     })
-    it('Should display the dialog on reset()', function() {
+    it('Should display the dialog on reset()', function () {
         beforeEach()
-        var cookieConsent = new CookieConsent({autoShowModal: false})
-        assert.equals(document.getElementById("cookieConsentModal"), null)
-        cookieConsent.reset()
-        assert.true(document.getElementById("cookieConsentModal") !== null)
+        const cookieConsent = new CookieConsent({
+            contentUrl: "../cookie-consent-content",
+            autoShowModal: false,
+            postSelectionCallback: () => {
+                assert.equals(document.getElementById("cookieConsentModal"), null)
+                cookieConsent.reset()
+                assert.true(document.getElementById("cookieConsentModal") !== null)
+            }
+        })
     })
-    it('Should write a cookie if accepted', function() {
+    it('Should write a cookie if accepted', function () {
         beforeEach()
-        var cookieConsent = new CookieConsent()
-        assert.equals(cookieConsent.trackingAllowed(), false)
-        document.getElementById("cookieConsentModal").querySelector(".btn-accept-all").click()
-        assert.equals(cookieConsent.trackingAllowed(), true)
+        const cookieConsent = new CookieConsent({
+            contentUrl: "../cookie-consent-content",
+            postSelectionCallback: () => {
+                assert.equals(cookieConsent.trackingAllowed(), false)
+                document.getElementById("cookieConsentModal").querySelector(".btn-accept-all").click()
+                assert.equals(cookieConsent.trackingAllowed(), true)
+            }
+        })
     })
-    it('Should write a cookie if not accepted', function() {
+    it('Should write a cookie if not accepted', function () {
         beforeEach()
-        var cookieConsent = new CookieConsent()
-        assert.equals(cookieConsent.trackingAllowed(), false)
-        document.getElementById("cookieConsentModal").querySelector(".btn-accept-necessary").click()
-        assert.equals(cookieConsent.trackingAllowed(), false)
+        const cookieConsent = new CookieConsent({
+            contentUrl: "../cookie-consent-content",
+            postSelectionCallback: () => {
+                assert.equals(cookieConsent.trackingAllowed(), false)
+                document.getElementById("cookieConsentModal").querySelector(".btn-accept-necessary").click()
+                assert.equals(cookieConsent.trackingAllowed(), false)
+            }
+        })
     })
 })
 /*
@@ -59,6 +83,7 @@ function setCookie(name, value, days) {
     document.cookie = name + "=" + (value || "") + expires + "; Path=/; SameSite=Strict;"
 }
 */
+
 /*
 function getCookie(name) {
     var nameEQ = name + "="

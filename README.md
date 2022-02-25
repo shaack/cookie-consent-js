@@ -54,7 +54,7 @@ const cookieConsent = new CookieConsent({
 })
 ```
 
-In `props` you should at least define `privacyPolicyUrl`. See below "Configuration properties".
+In `props` you should at least define `contentUrl` and `privacyPolicyUrl`. See below "Configuration properties".
 
 ### 5. Enable "Cookie settings" in your service navigation
 

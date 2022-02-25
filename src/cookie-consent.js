@@ -12,15 +12,15 @@ function CookieConsent(props) {
     self.props = {
         buttonPrimaryClass: "btn btn-primary", // the "accept all" buttons class, only used for styling
         buttonSecondaryClass: "btn btn-secondary", // the "accept necessary" buttons class, only used for styling
-        privacyPolicyUrl: "privacy-policy.html",
         autoShowModal: true, // disable autoShowModal on the privacy policy page, to make that page readable
         blockAccess: false, // set "true" to block the access to the website before choosing a cookie configuration
         position: "right", // position ("left" or "right"), if blockAccess is false
-        postSelectionCallback: undefined, // callback, after the user has made his selection
+        postSelectionCallback: undefined, // callback, after the user has made a selection
         lang: navigator.language, // the language, in which the dialog is shown
         defaultLang: "en", // default language, if the `lang` is not available as translation in `cookie-consent-content`
         content: [], // deprecated, we now have a `content` folder, which contains the language files
-        contentUrl: "./cookie-consent-content", // the url of the "cookie-consent-content" folder
+        contentUrl: "./cookie-consent-content", // the url of the "cookie-consent-content" folder, which contains the language files
+        privacyPolicyUrl: "privacy-policy.html",
         cookieName: "cookie-consent-tracking-allowed",  // the name of the cookie, the cookie is `true` if tracking was accepted
         modalId: "cookieConsentModal" // the id of the modal dialog element
     }

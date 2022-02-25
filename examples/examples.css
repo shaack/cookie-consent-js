@@ -1,0 +1,14 @@
+body {
+    font-family: sans-serif;
+    line-height: 1.4;
+}
+button {
+    border: 1px solid #333;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 100%;
+    background-color: #eee;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    border-radius: 0.25rem;
+}

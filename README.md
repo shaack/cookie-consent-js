@@ -1,13 +1,18 @@
 # cookie-consent-js
 
-A simple dialog and framework to handle the EU law (as written by EuGH, 1.10.2019 – C-673/17) about cookies
-in a website.
+A simple dialog and framework to handle the EU law (as written by EuGH, 1.10.2019 – C-673/17) about cookies in a
+website.
+
+Existing language files for en, de and oc. If you add one, please make a pull request to have it added here as well, 
+thanks.
 
 ## Features
 
 - **cookie-consent-js has no external dependencies** – and it works also with Bootstrap.
 - **cookie-consent-js is responsive**, it works on mobile and desktop devices.
-- You can customize cookie-consent-js with its properties, add [translations](https://shaack.com/projekte/cookie-consent-js/examples/cookie-consent-add-translations.html) and change its behaviour.
+- You can customize cookie-consent-js with its properties,
+  add [translations](https://shaack.com/projekte/cookie-consent-js/examples/cookie-consent-add-translations.html) and
+  change its behaviour.
 - Customize **cookie-consent-js** via `css` or `scss` to fit your website.
 
 ## See it in action
@@ -44,7 +49,10 @@ In your `<head>` or at the bottom of your `<body>`.
 ### 4. Initialize the Script
 
 ```js
-var cookieConsent = new CookieConsent({privacyPolicyUrl: "/privacy-policy.html"})
+var cookieConsent = new CookieConsent({
+    contentPath: "./cookie-consent-content", // location of the language files
+    privacyPolicyUrl: "/privacy-policy.html"
+})
 ```
 
 In `props` you should at least define `privacyPolicyUrl`. See below "Configuration properties".
@@ -135,8 +143,8 @@ self.props = {
     position: "right", // position ("left" or "right"), if blockAccess is false
     postSelectionCallback: undefined, // callback, after the user has made his selection
     lang: navigator.language, // the language, in which the dialog is shown
-    defaultLang: "en", // default language, if the `lang` is not available as translation in `content`
-    content: { // the content in all needed languages
+    defaultLang: "en", // default language, if the `lang` is not available as translation in `cookie-consent-content`
+    content: { // the cookie-consent-content in all needed languages
         de: {
             title: "Cookie-Einstellungen",
             body: "Wir nutzen Cookies, um Inhalte zu personalisieren und die Zugriffe auf unsere Website zu analysieren. " +
@@ -148,7 +156,7 @@ self.props = {
         },
         en: {
             title: "Cookie settings",
-            body: "We use cookies to personalize content and analyze access to our website. " +
+            body: "We use cookies to personalize cookie-consent-content and analyze access to our website. " +
                 "You can choose whether you only accept cookies that are necessary for the functioning of the website " +
                 "or whether you also want to allow tracking cookies. For more information, please refer to our --privacy-policy--.",
             privacyPolicy: "privacy policy",
@@ -163,8 +171,8 @@ self.props = {
 
 ### Disable autoShow
 
-You can disable `autoShowModal`, for instance, in the privacy policy and legal notice pages to make _these_ pages 
-better readable.
+You can disable `autoShowModal`, for instance, in the privacy policy and legal notice pages to make _these_ pages better
+readable.
 
 ```js
 var cookieConsent = new CookieConsent({linkPrivacyPolicy: "privacy-policy.html", autoShowModal: false})
@@ -178,7 +186,7 @@ See `./src/cookie-consent.scss` and overwrite values as you need in your project
 
 You can use this banner for your website free of charge under the [MIT-License](./LICENSE).
 
-The banner and framework was designed in cooperation with data protection officers and lawyers. However, we can not 
+The banner and framework was designed in cooperation with data protection officers and lawyers. However, we can not
 guarantee whether the banner is correct for your website and assume no liability for its use.
 
 cookie-consent-js is a project of [shaack.com](https://shaack.com).

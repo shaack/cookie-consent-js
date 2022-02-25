@@ -4,7 +4,8 @@
  * License: MIT, see file 'LICENSE'
  */
 
-"use strict";
+"use strict"
+
 function CookieConsent(props) {
 
     const self = this
@@ -17,80 +18,89 @@ function CookieConsent(props) {
         position: "right", // position ("left" or "right"), if blockAccess is false
         postSelectionCallback: undefined, // callback, after the user has made his selection
         lang: navigator.language, // the language, in which the dialog is shown
-        defaultLang: "en", // default language, if the `lang` is not available as translation in `content`
-        content: { // the content in all needed languages
-            de: {
-                title: "Cookie-Einstellungen",
-                body: "Wir nutzen Cookies, um Inhalte zu personalisieren und die Zugriffe auf unsere Website zu analysieren. " +
-                    "Sie können wählen, ob Sie nur für die Funktion der Website notwendige Cookies akzeptieren oder auch " +
-                    "Tracking-Cookies zulassen möchten. Weitere Informationen finden Sie in unserer --privacy-policy--.",
-                privacyPolicy: "Datenschutzerklärung",
-                buttonAcceptAll: "Alle Cookies akzeptieren",
-                buttonAcceptTechnical: "Nur technisch notwendige Cookies akzeptieren"
-            },
-            en: {
-                title: "Cookie settings",
-                body: "We use cookies to personalize content and analyze access to our website. " +
-                    "You can choose whether you only accept cookies that are necessary for the functioning of the website " +
-                    "or whether you also want to allow tracking cookies. For more information, please refer to our --privacy-policy--.",
-                privacyPolicy: "privacy policy",
-                buttonAcceptAll: "Accept all cookies",
-                buttonAcceptTechnical: "Only accept technically necessary cookies"
-            },
-            tr: {
-                title: "Çerez Ayarları",
-                body: "Sitemizde içeriklerin kişiselleştirilmesi ve erişim analizleri için çerezleri kullanmaktayız. " +
-                    "Sadece sitenin işleyişi için gerekli olan çerezlerin çalışmasını onaylayabilir veya kullanıcı davranışları " +
-                    "için olan çerezleri kabul edebilirsiniz. Daha fazla bilgi için --privacy-policy-- metnini okuyabilirsiniz.",
-                privacyPolicy: "gizlilik sözleşmesi",
-                buttonAcceptAll: "Tüm çerezleri kabul et",
-                buttonAcceptTechnical: "Sadece zorunlu tekniksel çerezleri kabul et"
-            }
-        },
+        defaultLang: "en", // default language, if the `lang` is not available as translation in `cookie-consent-content`
+        content: [], // deprecated, we now have a `content` folder, which contains the language files
+        contentPath: "./cookie-consent-content", // the path to the "cookie-consent-content" folder,
         cookieName: "cookie-consent-tracking-allowed",  // the name of the cookie, the cookie is `true` if tracking was accepted
         modalId: "cookieConsentModal" // the id of the modal dialog element
     }
     for (let property in props) {
-        if(property !== "content") {
+        if (property !== "content") {
             // noinspection JSUnfilteredForInLoop
             self.props[property] = props[property]
         }
-    }
-    for (let contentProperty in props.content) {
-        // noinspection JSUnfilteredForInLoop
-        self.props.content[contentProperty] = props.content[contentProperty]
     }
     self.lang = self.props.lang
     if (self.lang.indexOf("-") !== -1) {
         self.lang = self.lang.split("-")[0]
     }
-    if (self.props.content[self.lang] === undefined) {
-        self.lang = self.props.defaultLang
+    for (let contentProperty in props.content) {
+        self.props.content[contentProperty] = props.content[contentProperty]
     }
-    const _t = self.props.content[self.lang]
-    const linkPrivacyPolicy = '<a href="' + self.props.privacyPolicyUrl + '">' + _t.privacyPolicy + '</a>'
-    let modalClass = "cookie-consent-modal"
-    if (self.props.blockAccess) {
-         modalClass += " block-access"
+    if (!self.props.content[self.lang]) {
+        fetchContent(self.lang, (result) => {
+            this.props.content = JSON.parse(result)
+            renderModal()
+        })
+    } else {
+        renderModal()
     }
-    self.modalContent = '<!-- cookie banner => https://github.com/shaack/cookie-consent-js -->' +
-        '<div class="' + modalClass + '">' +
-        '<div class="modal-content-wrap ' + self.props.position + '">' +
-        '<div class="modal-content">' +
-        '<div class="modal-header">--header--</div>' +
-        '<div class="modal-body">--body--</div>' +
-        '<div class="modal-footer">--footer--</div>' +
-        '</div></div><!-- end cookie-consent.js -->'
-    self.modalContent = self.modalContent.replace(/--header--/, "<h3 class=\"modal-title\">" + _t.title + "</h3>")
-    self.modalContent = self.modalContent.replace(/--body--/,
-        _t.body.replace(/--privacy-policy--/, linkPrivacyPolicy)
-    )
-    self.modalContent = self.modalContent.replace(/--footer--/,
-        "<div class='buttons'>" +
-        "<button class='btn-accept-necessary " + self.props.buttonSecondaryClass + "'>" + _t.buttonAcceptTechnical + "</button>" +
-        "<button class='btn-accept-all " + self.props.buttonPrimaryClass + "'>" + _t.buttonAcceptAll + "</button>" +
-        "</div>"
-    )
+
+    function renderModal() {
+        const _t = self.props.content
+        const linkPrivacyPolicy = '<a href="' + self.props.privacyPolicyUrl + '">' + _t.privacyPolicy + '</a>'
+        if (self.props.content[self.lang] === undefined) {
+            self.lang = self.props.defaultLang
+        }
+        let modalClass = "cookie-consent-modal"
+        if (self.props.blockAccess) {
+            modalClass += " block-access"
+        }
+        self.modalContent = '<!-- cookie banner => https://github.com/shaack/cookie-consent-js -->' +
+            '<div class="' + modalClass + '">' +
+            '<div class="modal-content-wrap ' + self.props.position + '">' +
+            '<div class="modal-content">' +
+            '<div class="modal-header">--header--</div>' +
+            '<div class="modal-body">--body--</div>' +
+            '<div class="modal-footer">--footer--</div>' +
+            '</div></div><!-- end cookie-consent.js -->'
+        self.modalContent = self.modalContent.replace(/--header--/, "<h3 class=\"modal-title\">" + _t.title + "</h3>")
+        self.modalContent = self.modalContent.replace(/--body--/,
+            _t.body.replace(/--privacy-policy--/, linkPrivacyPolicy)
+        )
+        self.modalContent = self.modalContent.replace(/--footer--/,
+            "<div class='buttons'>" +
+            "<button class='btn-accept-necessary " + self.props.buttonSecondaryClass + "'>" + _t.buttonAcceptTechnical + "</button>" +
+            "<button class='btn-accept-all " + self.props.buttonPrimaryClass + "'>" + _t.buttonAcceptAll + "</button>" +
+            "</div>"
+        )
+        if (getCookie(self.props.cookieName) === undefined && self.props.autoShowModal) {
+            showDialog()
+        }
+    }
+
+    function fetchContent(lang, callback) {
+        const request = new XMLHttpRequest()
+        request.overrideMimeType("application/json")
+        const url = self.props.contentPath + '/' + lang + '.json'
+        request.open('GET', url, true)
+        request.onreadystatechange = function () {
+            if (request.readyState === 4 && request.status === 200) {
+                if (request.status === 200) {
+                    callback(request.responseText)
+                } else {
+                    console.error(url, request.status)
+                }
+            }
+        }
+        request.onloadend = function() {
+            if (request.status === 404 && lang !== self.props.defaultLang) {
+                console.warn("language " + lang + " not found trying defaultLang " + self.props.defaultLang)
+                fetchContent(self.props.defaultLang, callback)
+            }
+        }
+        request.send(null)
+    }
 
     function setCookie(name, value, days) {
         let expires = ""
@@ -144,14 +154,14 @@ function CookieConsent(props) {
                 self.modal.querySelector(".btn-accept-necessary").addEventListener("click", function () {
                     setCookie(self.props.cookieName, "false", 365)
                     hideDialog()
-                    if(self.props.postSelectionCallback) {
+                    if (self.props.postSelectionCallback) {
                         self.props.postSelectionCallback()
                     }
                 })
                 self.modal.querySelector(".btn-accept-all").addEventListener("click", function () {
                     setCookie(self.props.cookieName, "true", 365)
                     hideDialog()
-                    if(self.props.postSelectionCallback) {
+                    if (self.props.postSelectionCallback) {
                         self.props.postSelectionCallback()
                     }
                 })
@@ -161,11 +171,8 @@ function CookieConsent(props) {
         }.bind(this))
     }
 
-    if (getCookie(self.props.cookieName) === undefined && self.props.autoShowModal) {
-        showDialog()
-    }
-
     // API
+
     self.reset = function () {
         removeCookie(self.props.cookieName)
         showDialog()

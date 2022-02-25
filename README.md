@@ -12,9 +12,8 @@ The banner and framework was designed in cooperation with data protection office
 
 - **cookie-consent-js has no external dependencies** – and it works also with Bootstrap.
 - **cookie-consent-js is responsive**, it works on mobile and desktop devices.
-- You can customize cookie-consent-js with its properties,
-  add [translations](https://shaack.com/projekte/cookie-consent-js/examples/cookie-consent-add-translations.html) and
-  change its behaviour.
+- You can customize cookie-consent-js with its properties and change its behaviour.
+- Add language files for additional translations.
 - Customize **cookie-consent-js** via `css` or `scss` to fit your website.
 
 ## See it in action

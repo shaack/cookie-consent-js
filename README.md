@@ -3,10 +3,11 @@
 A simple dialog and framework to handle the EU law (as written by EuGH, 1.10.2019 – C-673/17) about cookies in a
 website.
 
-There are language files for en, de, fr, es, oc and tr. If you add one, please make a pull request to have it added here as well, 
-thanks.
+There are language files for en, de, fr, es, oc and tr. If you add one, please make a pull request to have it added here
+as well, thanks.
 
-The banner and framework was designed in cooperation with data protection officers and lawyers. However, we can not guarantee whether the banner is correct for your website and assume no liability for its use.
+The banner and framework was designed in cooperation with data protection officers and lawyers. However, we can not
+guarantee whether the banner is correct for your website and assume no liability for its use.
 
 ## Features
 
@@ -45,14 +46,14 @@ look at [cookie-consent.scss](https://github.com/shaack/cookie-consent-js/blob/m
 <script src="/node_modules/cookie-consent-js/src/cookie-consent.js"></script>
 ```
 
-In your `<head>` or at the bottom of your `<body>`.
+In your websites `<head>` or at the bottom of the `<body>`.
 
 ### 4. Initialize the Script
 
 ```js
 const cookieConsent = new CookieConsent({
-  contentUrl: "./cookie-consent-content", // location of the language files
-  privacyPolicyUrl: "/privacy-policy.html"
+    contentUrl: "./cookie-consent-content", // location of the language files
+    privacyPolicyUrl: "/privacy-policy.html"
 })
 ```
 
@@ -136,19 +137,19 @@ With default values.
 
 ```js
 self.props = {
-  buttonPrimaryClass: "btn btn-primary", // the "accept all" buttons class, only used for styling
-  buttonSecondaryClass: "btn btn-secondary", // the "accept necessary" buttons class, only used for styling
-  autoShowModal: true, // disable autoShowModal on the privacy policy page, to make that page readable
-  blockAccess: false, // set "true" to block the access to the website before choosing a cookie configuration
-  position: "right", // position ("left" or "right"), if blockAccess is false
-  postSelectionCallback: undefined, // callback, after the user has made a selection
-  lang: navigator.language, // the language, in which the dialog is shown
-  defaultLang: "en", // default language, if the `lang` is not available as translation in `cookie-consent-content`
-  content: [], // deprecated, we now have a `content` folder, which contains the language files
-  contentUrl: "./cookie-consent-content", // the url of the "cookie-consent-content" folder, which contains the language files
-  privacyPolicyUrl: "privacy-policy.html",
-  cookieName: "cookie-consent-tracking-allowed",  // the name of the cookie, the cookie is `true` if tracking was accepted
-  modalId: "cookieConsentModal" // the id of the modal dialog element
+    buttonPrimaryClass: "btn btn-primary", // the "accept all" buttons class, only used for styling
+    buttonSecondaryClass: "btn btn-secondary", // the "accept necessary" buttons class, only used for styling
+    autoShowModal: true, // disable autoShowModal on the privacy policy page, to make that page readable
+    blockAccess: false, // set "true" to block the access to the website before choosing a cookie configuration
+    position: "right", // position ("left" or "right"), if blockAccess is false
+    postSelectionCallback: undefined, // callback, after the user has made a selection
+    lang: navigator.language, // the language, in which the dialog is shown
+    defaultLang: "en", // default language, if the `lang` is not available as translation in `cookie-consent-content`
+    content: [], // deprecated, we now have a `content` folder, which contains the language files
+    contentUrl: "./cookie-consent-content", // the url of the "cookie-consent-content" folder, which contains the language files
+    privacyPolicyUrl: "privacy-policy.html",
+    cookieName: "cookie-consent-tracking-allowed",  // the name of the cookie, the cookie is `true` if tracking was accepted
+    modalId: "cookieConsentModal" // the id of the modal dialog element
 }
 ```
 
@@ -158,7 +159,11 @@ You can disable `autoShowModal`, for instance, in the privacy policy and legal n
 readable.
 
 ```js
-var cookieConsent = new CookieConsent({autoShowModal: false, privacyPolicyUrl: "privacy-policy.html", contentUrl: "./cookie-consent-content"})
+var cookieConsent = new CookieConsent({
+    autoShowModal: false,
+    privacyPolicyUrl: "privacy-policy.html",
+    contentUrl: "./cookie-consent-content"
+})
 ```
 
 ## Styling

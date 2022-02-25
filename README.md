@@ -6,9 +6,6 @@ website.
 There are language files for en, de, fr, es, oc and tr. If you add one, please make a pull request to have it added here
 as well, thanks.
 
-The banner and framework was designed in cooperation with data protection officers and lawyers. However, we can not
-guarantee whether the banner is correct for your website and assume no liability for its use.
-
 ## Features
 
 - **cookie-consent-js has no external dependencies** – and it works also with Bootstrap.

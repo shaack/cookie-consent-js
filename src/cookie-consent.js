@@ -20,7 +20,7 @@ function CookieConsent(props) {
         lang: navigator.language, // the language, in which the dialog is shown
         defaultLang: "en", // default language, if the `lang` is not available as translation in `cookie-consent-content`
         content: [], // deprecated, we now have a `content` folder, which contains the language files
-        contentPath: "./cookie-consent-content", // the path to the "cookie-consent-content" folder,
+        contentUrl: "./cookie-consent-content", // the url of the "cookie-consent-content" folder
         cookieName: "cookie-consent-tracking-allowed",  // the name of the cookie, the cookie is `true` if tracking was accepted
         modalId: "cookieConsentModal" // the id of the modal dialog element
     }
@@ -82,7 +82,7 @@ function CookieConsent(props) {
     function fetchContent(lang, callback) {
         const request = new XMLHttpRequest()
         request.overrideMimeType("application/json")
-        const url = self.props.contentPath + '/' + lang + '.json'
+        const url = self.props.contentUrl + '/' + lang + '.json'
         request.open('GET', url, true)
         request.onreadystatechange = function () {
             if (request.readyState === 4 && request.status === 200) {

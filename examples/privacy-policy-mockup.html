@@ -16,14 +16,14 @@
 <h1>Privacy Policy Mockup</h1>
 <p>The cookie settings dialog is not automatically displayed, so the user can read the privacy policy before deciding on a setting.</p>
 <p>This is achieved with the property autoShowModal, which is set to false.</p>
-<pre><code>var cookieConsent = new CookieConsent({privacyPolicyUrl: "privacy-policy-mockup.html", autoShowModal: false})</code></pre>
+<pre><code>var cookieConsent = new CookieConsent({privacyPolicyUrl: "privacy-policy-mockup.html", autoShowModal: false, contentPath: "../cookie-consent-content"})</code></pre>
 <p>To display the dialog anyway, the API function reset() can be used:</p>
 <p>
     <a href="javascript:cookieConsent.reset()">Show cookie settings</a>
 </p>
 <script src="../src/cookie-consent.js"></script>
 <script>
-    var cookieConsent = new CookieConsent({privacyPolicyUrl: "privacy-policy-mockup.html", autoShowModal: false})
+    const cookieConsent = new CookieConsent({privacyPolicyUrl: "privacy-policy-mockup.html", autoShowModal: false, contentUrl: "../cookie-consent-content"})
 </script>
 </body>
 </html>

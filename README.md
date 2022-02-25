@@ -3,7 +3,7 @@
 A simple dialog and framework to handle the EU law (as written by EuGH, 1.10.2019 – C-673/17) about cookies in a
 website.
 
-Existing language files for en, de, oc and tr. If you add one, please make a pull request to have it added here as well, 
+There are language files for en, de, fr, es, oc and tr. If you add one, please make a pull request to have it added here as well, 
 thanks.
 
 ## Features
@@ -50,8 +50,8 @@ In your `<head>` or at the bottom of your `<body>`.
 
 ```js
 var cookieConsent = new CookieConsent({
-    contentPath: "./cookie-consent-content", // location of the language files
-    privacyPolicyUrl: "/privacy-policy.html"
+  contentUrl: "./cookie-consent-content", // location of the language files
+  privacyPolicyUrl: "/privacy-policy.html"
 })
 ```
 
@@ -135,37 +135,19 @@ With default values.
 
 ```js
 self.props = {
-    buttonPrimaryClass: "btn btn-primary", // the "accept all" buttons class, only used for styling
-    buttonSecondaryClass: "btn btn-secondary", // the "accept necessary" buttons class, only used for styling
-    privacyPolicyUrl: "privacy-policy.html",
-    autoShowModal: true, // disable autoShowModal on the privacy policy page, to make that page readable
-    blockAccess: false, // set "true" to block the access to the website before choosing a cookie configuration
-    position: "right", // position ("left" or "right"), if blockAccess is false
-    postSelectionCallback: undefined, // callback, after the user has made his selection
-    lang: navigator.language, // the language, in which the dialog is shown
-    defaultLang: "en", // default language, if the `lang` is not available as translation in `cookie-consent-content`
-    content: { // the cookie-consent-content in all needed languages
-        de: {
-            title: "Cookie-Einstellungen",
-            body: "Wir nutzen Cookies, um Inhalte zu personalisieren und die Zugriffe auf unsere Website zu analysieren. " +
-                "Sie können wählen, ob Sie nur für die Funktion der Website notwendige Cookies akzeptieren oder auch " +
-                "Tracking-Cookies zulassen möchten. Weitere Informationen finden Sie in unserer --privacy-policy--.",
-            privacyPolicy: "Datenschutzerklärung",
-            buttonAcceptAll: "Alle Cookies akzeptieren",
-            buttonAcceptTechnical: "Nur technisch notwendige Cookies akzeptieren"
-        },
-        en: {
-            title: "Cookie settings",
-            body: "We use cookies to personalize cookie-consent-content and analyze access to our website. " +
-                "You can choose whether you only accept cookies that are necessary for the functioning of the website " +
-                "or whether you also want to allow tracking cookies. For more information, please refer to our --privacy-policy--.",
-            privacyPolicy: "privacy policy",
-            buttonAcceptAll: "Accept all cookies",
-            buttonAcceptTechnical: "Only accept technically necessary cookies"
-        }
-    },
-    cookieName: "cookie-consent-tracking-allowed",  // the name of the cookie, the cookie is `true` if tracking was accepted
-    modalId: "cookieConsentModal" // the id of the modal dialog element
+  buttonPrimaryClass: "btn btn-primary", // the "accept all" buttons class, only used for styling
+  buttonSecondaryClass: "btn btn-secondary", // the "accept necessary" buttons class, only used for styling
+  privacyPolicyUrl: "privacy-policy.html",
+  autoShowModal: true, // disable autoShowModal on the privacy policy page, to make that page readable
+  blockAccess: false, // set "true" to block the access to the website before choosing a cookie configuration
+  position: "right", // position ("left" or "right"), if blockAccess is false
+  postSelectionCallback: undefined, // callback, after the user has made his selection
+  lang: navigator.language, // the language, in which the dialog is shown
+  defaultLang: "en", // default language, if the `lang` is not available as translation in `cookie-consent-content`
+  content: [], // deprecated, we now have a `content` folder, which contains the language files
+  contentUrl: "./cookie-consent-content", // the url of the "cookie-consent-content" folder
+  cookieName: "cookie-consent-tracking-allowed",  // the name of the cookie, the cookie is `true` if tracking was accepted
+  modalId: "cookieConsentModal" // the id of the modal dialog element
 }
 ```
 

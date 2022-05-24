@@ -5,11 +5,11 @@ website.
 
 ## Features
 
-- **Internationalizable** with language files.
-- **No external dependencies** (and it works also with Bootstrap).
-- **Responsive**, it works on mobile and desktop devices.
-- **Style** cookie-consent-js via `css` or `scss` to fit your website.
-- It is fully **Customizable** with properties.
+- **Internationalizable** with language files
+- **No external dependencies** (and it works also with Bootstrap)
+- **Responsive**, it works on mobile and desktop devices
+- **Style** cookie-consent-js via `css` or `scss` to fit your website
+- It is fully **Customizable** with properties
 
 ## Internationalisable cookie consent banner
 

@@ -49,7 +49,7 @@ In your websites `<head>` or at the bottom of the `<body>`.
 
 ```js
 const cookieConsent = new CookieConsent({
-    contentUrl: "./cookie-consent-content", // location of the language files
+    contentUrl: "/node_modules/cookie-consent-js/cookie-consent-content", // location of the language files
     privacyPolicyUrl: "/privacy-policy.html"
 })
 ```

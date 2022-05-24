@@ -3,16 +3,17 @@
 A simple dialog and framework to handle the EU law (as written by EuGH, 1.10.2019 – C-673/17) about cookies in a
 website.
 
-There are language files for en, de, fr, es, oc and tr. If you add one, please make a pull request to have it added here
-as well, thanks.
-
 ## Features
 
-- **cookie-consent-js has no external dependencies** – and it works also with Bootstrap.
-- **cookie-consent-js is responsive**, it works on mobile and desktop devices.
-- You can customize cookie-consent-js with its properties and change its behaviour.
-- Add language files for additional translations.
-- Customize **cookie-consent-js** via `css` or `scss` to fit your website.
+- **Internationalizable** with language files.
+- **No external dependencies** (and it works also with Bootstrap).
+- **Responsive**, it works on mobile and desktop devices.
+- **Style** cookie-consent-js via `css` or `scss` to fit your website.
+- It is fully **Customizable** with properties.
+
+## Internationalisable cookie consent banner
+
+There are already language files for [cz, de, en, es, fr, oc and tr](https://github.com/shaack/cookie-consent-js/tree/master/cookie-consent-content). If you add one, please make a pull request to have it added here as well, thanks.
 
 ## See it in action
 

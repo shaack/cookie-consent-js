@@ -13,7 +13,7 @@ website.
 
 ## Internationalizable cookie consent banner
 
-There are already language files for [cz, de, en, es, fr, it, oc and tr](https://github.com/shaack/cookie-consent-js/tree/master/cookie-consent-content). If you add one, please make a pull request to have it added here as well, thanks.
+There are already language files for [cz, de, en, es, fr, gr, it, oc and tr](https://github.com/shaack/cookie-consent-js/tree/master/cookie-consent-content). If you add one, please make a pull request to have it added here as well, thanks.
 
 ## See it in action
 
@@ -30,7 +30,6 @@ Alternatively you can download the [git repository](https://github.com/shaack/co
 ### 2. Include `cookie-consent.css`
 
 ```html
-
 <link rel="stylesheet" href="/node_modules/cookie-consent-js/src/cookie-consent.css"/>
 ```
 

@@ -5,7 +5,7 @@ website.
 
 ## Features
 
-- **Internationalizable** with language files
+- **Internationalizable** with [language files](https://github.com/shaack/cookie-consent-js/tree/master/cookie-consent-content)
 - **No external dependencies** (and it works also with Bootstrap)
 - **Responsive**, it works on mobile and desktop devices
 - **Style** cookie-consent-js via `css` or `scss` to fit your website
@@ -13,7 +13,7 @@ website.
 
 ## Internationalisable cookie consent banner
 
-There are already language files for [cz, de, en, es, fr, oc and tr](https://github.com/shaack/cookie-consent-js/tree/master/cookie-consent-content). If you add one, please make a pull request to have it added here as well, thanks.
+There are already language files for [cz, de, en, es, fr, it, oc and tr](https://github.com/shaack/cookie-consent-js/tree/master/cookie-consent-content). If you add one, please make a pull request to have it added here as well, thanks.
 
 ## See it in action
 

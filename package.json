@@ -1,6 +1,6 @@
 {
   "name": "cookie-consent-js",
-  "version": "2.1.4",
+  "version": "2.1.5",
   "description": "A simple dialog and framework to handle the EU law (as written by EuGH, 1.10.2019 – C-673/17) about cookies in a website.",
   "main": "src/cookie-consent.js",
   "scripts": {

@@ -1,7 +1,7 @@
 {
-  "title": "Impostazioni dei cookie",
-  "body": "Utilizziamo i cookie per personalizzare i contenuti e analizzare il traffico sul nostro sito web. È possibile scegliere di accettare solo i cookie necessari al funzionamento del sito web o di consentire anche i cookie di tracciamento. Ulteriori informazioni sono disponibili nella nostra --privacy-policy--.",
-  "privacyPolicy": "Informativa sulla privacy",
-  "buttonAcceptAll": "Accettare tutti i cookie",
-  "buttonAcceptTechnical": "Accettare solo i cookie tecnicamente necessari"
+  "title": "Cookie-Einstellungen",
+  "body": "Wir nutzen Cookies, um Inhalte zu personalisieren und die Zugriffe auf unsere Website zu analysieren. Sie können wählen, ob Sie nur für die Funktion der Website notwendige Cookies akzeptieren oder auch Tracking-Cookies zulassen möchten. Weitere Informationen finden Sie in unserer --privacy-policy--.",
+  "privacyPolicy": "Datenschutzerklärung",
+  "buttonAcceptAll": "Alle Cookies akzeptieren",
+  "buttonAcceptTechnical": "Nur technisch notwendige Cookies akzeptieren"
 }

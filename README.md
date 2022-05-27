@@ -11,7 +11,7 @@ website.
 - **Style** cookie-consent-js via `css` or `scss` to fit your website
 - It is fully **Customizable** with properties
 
-## Internationalisable cookie consent banner
+## Internationalizable cookie consent banner
 
 There are already language files for [cz, de, en, es, fr, it, oc and tr](https://github.com/shaack/cookie-consent-js/tree/master/cookie-consent-content). If you add one, please make a pull request to have it added here as well, thanks.
 

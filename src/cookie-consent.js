@@ -24,7 +24,7 @@ function CookieConsent(props) {
         cookieName: "cookie-consent-tracking-allowed",  // the name of the cookie, the cookie is `true` if tracking was accepted
         modalId: "cookieConsentModal" // the id of the modal dialog element
     }
-    for (let property in props) {
+    for (const property in props) {
         if (property !== "content") {
             // noinspection JSUnfilteredForInLoop
             self.props[property] = props[property]

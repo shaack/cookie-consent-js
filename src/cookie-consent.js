@@ -26,7 +26,6 @@ function CookieConsent(props) {
     }
     for (const property in props) {
         if (property !== "content") {
-            // noinspection JSUnfilteredForInLoop
             self.props[property] = props[property]
         }
     }
@@ -93,7 +92,7 @@ function CookieConsent(props) {
                 }
             }
         }
-        request.onloadend = function() {
+        request.onloadend = function () {
             if (request.status === 404 && lang !== self.props.defaultLang) {
                 console.warn("language " + lang + " not found trying defaultLang " + self.props.defaultLang)
                 fetchContent(self.props.defaultLang, callback)

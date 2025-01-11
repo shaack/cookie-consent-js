@@ -171,7 +171,7 @@ You can use this banner for your website free of charge under the [MIT-License](
 The banner and framework was designed in cooperation with data protection officers and lawyers. However, we can not
 guarantee whether the banner is correct for your website and assume no liability for its use.
 
-## More modules
+---
 
-Find more high quality modules
-on [my projects page](https://shaack.com/works).
+Find more high quality modules from [shaack.com](https://shaack.com)
+on [our projects page](https://shaack.com/works).

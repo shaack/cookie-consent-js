@@ -3,8 +3,6 @@
 A simple dialog and framework to handle the EU law (as written by EuGH, 1.10.2019 – C-673/17) about cookies in a
 website.
 
-## Features
-
 - **Internationalizable**
   with [language files](https://github.com/shaack/cookie-consent-js/tree/master/cookie-consent-content)
 - **No external dependencies** (and it works also with Bootstrap)
@@ -12,40 +10,37 @@ website.
 - **Style** cookie-consent-js via `css` or `scss` to fit your website
 - It is fully **Customizable** with properties
 
-## Internationalizable cookie consent banner
-
-There are already language files
-for [cz, de, en, es, fr, gr, it, oc and tr](https://github.com/shaack/cookie-consent-js/tree/master/cookie-consent-content).
-If you add one, please make a pull request to have it added here as well, thanks.
-
-## See it in action
+## References
 
 - [Demo pages with usage examples](https://shaack.com/projekte/cookie-consent-js/index.html)
+- [GitHub repository](https://github.com/shaack/cookie-consent-js)
+- [npm package](https://www.npmjs.com/package/cookie-consent-js)
 
 ## Usage
 
 Follow these easy steps to integrate the cookie settings in your page.
 
-### 1. Install cookie-consent-js in your project with `npm install cookie-consent-js`
+### 1. Install
 
-Alternatively you can download the [git repository](https://github.com/shaack/cookie-consent-js).
+- Install cookie-consent-js in your project with `npm install cookie-consent-js`
+- Alternatively you can download the [git repository](https://github.com/shaack/cookie-consent-js)
 
-### 2. Include `cookie-consent.css`
+### 2. Include the CSS
 
 ```html
 <link rel="stylesheet" href="/node_modules/cookie-consent-js/src/cookie-consent.css"/>
 ```
 
-This should be done before any bootstrap or other frameworks css. You can overwrite styling in your projects css, take a
+This should be done before any bootstrap or other frameworks CSS. You can overwrite styling in your projects CSS, take a
 look at [cookie-consent.scss](https://github.com/shaack/cookie-consent-js/blob/master/src/cookie-consent.scss).
 
-### 3. Include `cookie-consent.js`
+### 3. Include the js
 
 ```html
 <script src="/node_modules/cookie-consent-js/src/cookie-consent.js"></script>
 ```
 
-In your websites `<head>` or at the bottom of the `<body>`.
+Load the js in your websites `<head>` or at the bottom of the `<body>`.
 
 ### 4. Initialize the Script
 
@@ -66,9 +61,9 @@ In `props` you should at least define `contentUrl` and `privacyPolicyUrl`. See b
 
 So the user can anytime reconfigure, if he wants tracking or not.
 
-### 6. Enable or disable tracking depending on configuration
+### 6. Enable or disable tracking depending on the users configuration
 
-Client side JavaScript: Surround your tracking code with
+**Client side JavaScript**: Surround your tracking code with
 
 ```js
 if (cookieConsent.trackingAllowed()) {
@@ -76,7 +71,7 @@ if (cookieConsent.trackingAllowed()) {
 }
 ``` 
 
-Server side PHP: Surround your tracking code with
+**Server side PHP**: Surround your tracking code with
 
 ```php
 if($_COOKIE['cookie-consent-tracking-allowed'] === 'true') {
@@ -84,7 +79,7 @@ if($_COOKIE['cookie-consent-tracking-allowed'] === 'true') {
 }
 ```
 
-All other languages: Just read, if the cookie `cookie-consent-tracking-allowed` is "true"
+**All other languages**: Just read, if the cookie `cookie-consent-tracking-allowed` is "true"
 
 ...that's all! [Contact me](https://shaack.com), if you have questions.
 
@@ -176,4 +171,7 @@ You can use this banner for your website free of charge under the [MIT-License](
 The banner and framework was designed in cooperation with data protection officers and lawyers. However, we can not
 guarantee whether the banner is correct for your website and assume no liability for its use.
 
-cookie-consent-js is a project of [shaack.com](https://shaack.com).
+## More modules
+
+Find more high quality modules
+on [my projects page](https://shaack.com/works).

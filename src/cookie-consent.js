@@ -67,12 +67,15 @@ function CookieConsent(props) {
         self.modalContent = self.modalContent.replace(/--body--/,
             _t.body.replace(/--privacy-policy--/, linkPrivacyPolicy)
         )
-        self.modalContent = self.modalContent.replace(/--footer--/,
-            "<div class='buttons'>" +
-            "<button class='btn-accept-necessary " + self.props.buttonSecondaryClass + "'>" + _t.buttonAcceptTechnical + "</button>" +
-            "<button class='btn-accept-all " + self.props.buttonPrimaryClass + "'>" + _t.buttonAcceptAll + "</button>" +
-            "</div>"
-        )
+        let textFooter = "<div class='buttons'>"
+        if (_t.buttonAcceptTechnical) {
+            textFooter += "<button class='btn-accept-necessary " + self.props.buttonSecondaryClass + "'>" + _t.buttonAcceptTechnical + "</button>"
+        }
+        if (_t.buttonAcceptAll) {
+            textFooter += "<button class='btn-accept-all " + self.props.buttonPrimaryClass + "'>" + _t.buttonAcceptAll + "</button>"
+        }
+        textFooter += "</div>"
+        self.modalContent = self.modalContent.replace(/--footer--/, textFooter)
         if (getCookie(self.props.cookieName) === undefined && self.props.autoShowModal) {
             showDialog()
         }

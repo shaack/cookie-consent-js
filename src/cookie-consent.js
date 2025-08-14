@@ -153,14 +153,14 @@ function CookieConsent(props) {
                 self.modal.id = self.props.modalId
                 self.modal.innerHTML = self.modalContent
                 document.body.append(self.modal)
-                self.modal.querySelector(".btn-accept-necessary").addEventListener("click", function () {
+                self.modal.querySelector(".btn-accept-necessary")?.addEventListener("click", function () {
                     setCookie(self.props.cookieName, "false", 365)
                     hideDialog()
                     if (self.props.postSelectionCallback) {
                         self.props.postSelectionCallback()
                     }
                 })
-                self.modal.querySelector(".btn-accept-all").addEventListener("click", function () {
+                self.modal.querySelector(".btn-accept-all")?.addEventListener("click", function () {
                     setCookie(self.props.cookieName, "true", 365)
                     hideDialog()
                     if (self.props.postSelectionCallback) {
